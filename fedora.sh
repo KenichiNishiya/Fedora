@@ -36,6 +36,7 @@ unrar
 xfce4-power-manager
 xclip
 xrandr
+xprop
 xsel
 yt-dlp
 zsh
@@ -220,7 +221,6 @@ cd ~/.icons
 git clone https://github.com/m4thewz/dracula-icons
 
 # For the cursor we need to something different:
-# https://www.gnome-look.org/p/1669262
 # It needs to be in tar.gz format
 mv ~/.themes/dracula/kde/cursors/Dracula-cursors ~/.themes
 cd ~/.themes
@@ -239,21 +239,29 @@ sudo lxappearance
 sudo vim /usr/share/icons/default/index.theme
 sudo vim /usr/share/gtk-2.0/gtkrc
 
-# Also change the lightdm
-sudo cp ~/Pictures/.sysimg/ayy.jpg /usr/share/backgrounds
-sudo lightdm-gtk-greeter-settings
-
 # Now for the qt stuff
-kvantum
+kvantummanager
+sudo kvantummanger
 # Install/Update Theme > Select a Kvantum theme folder > /home/yori/.themes/dracula/kde/kvantum/Dracula-purple-solid > Choose > Install this theme
 # Change/Delete Theme > Select a theme: > Dracula-purple-solid > Use this theme
 qt5ct
+sudo qt5ct # Altough this won't work unless you set the env var on /etc/profile
 # Appearance > Style: > kvantum > Apply
 # Icon Theme > Dracula > Apply
 
 vim .profile
 # Paste the following line:
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+# Change the desktop background
+nitrogen
+# To always initailize with the same background, put the following on .profile
+nitrogen --restore
+
+# Also change the lightdm background
+sudo cp ~/Pictures/.sysimg/ayy.jpg /usr/share/backgrounds
+sudo cp ~/Pictures/.sysimg/suk.png /usr/share/backgrounds
+sudo lightdm-gtk-greeter-settings
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! CUSTOMIZE FIREFOX CSS
@@ -295,7 +303,8 @@ curl https://raw.githubusercontent.com/GeorgeFilipkin/pulsemixer/master/pulsemix
 #! POWER SAVING
 
 sudo dnf install xfce4-power-manager
-# This is a GUI app for power management
+sudo dnf install lxqt-powermanagement
+# These are GUI apps for power management, xfce's has brightness control, while lxqt don't
 
 #- auto-cpufreq
 # This shit is broken on Fedora, unless you use snap
@@ -384,10 +393,10 @@ reboot
 #! RUN GUI PROGRAMS WHICH REQUIRES SUDO/ROOT
 # https://wiki.Fedora.org/title/Polkit#Configuration
 
-sudo dnf install polkit xfce-polkit
+sudo dnf install polkit lxqt-policykit
 
 # You need to set it to auto start on .profile
-xfce-polkit &
+lxqt-policykit-agent &
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! WINE AND WINE DEPENDENCIES
@@ -430,7 +439,7 @@ xdg-open,firefox,konqueror,mozilla,netscape,galeon,opera,dillo
 #! MAKE A .desktop FILE FOR A LUTRIS GAME ENTRY FOR ROFI
 
 # Package needed to call the game via CLI
-sudo pacman -S python-magic
+sudo dnf install python-magic
 
 vim ~/.local/share/applications/NAMEOFTHEAPP.desktop
 
@@ -451,7 +460,7 @@ Keywords=Touhou, th
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! YOUTUBE-DLP (YT-DLP)
 
-sudo pacman -S yt-dlp atomicparsley ffmpeg
+sudo dnf install  yt-dlp AtomicParsley ffmpeg
 
 # Wat
 yt-dlp -o '~/Music/%(playlist_title)s/%(title)s.%(ext)s' -ciw -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 --add-metadata --cookies '~/Documents/ytdl/cookies-youtube-com.txt' --download-archive '~/Documents/ytdl/yt-dl_wat.txt' 'https://www.youtube.com/playlist?list=PLBYlt8Uh0EcxaT51BU5cyYxiGtN6JmoGL'
@@ -531,42 +540,45 @@ Internal Mic Boost
 # To add it, do:
 export PATH=/usr/libexec:/sbin:$PATH
 # You can put it on your .profile so it's persistent
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! RANGER CONFIGURATION
-'INCOMPLETE'
 sudo dnf install ranger
 
 #- RANGER SHOW IMAGE AND VIDEO THUMBNAIL
-
-sudo dnf copr enable tokiarew/ueberzug
 sudo dnf install ffmpegthumbnailer dnf-plugins-core ueberzug
+sudo dnf copr enable tokariew/ueberzug
+sudo dnf install  ueberzug
 
+# Copy all the base config files
+ranger copy-config=all
 vim .config/ranger/rc.conf
-# line 047 set set preview_script ~/.config/ranger/scope.sh
-# line 074 set preview images true
-# line 117 set preview_images_method ueberzug
-
+# Go to these lines and edit to be like these
+'
+line 047 set preview_script ~/.config/ranger/scope.sh
+line 074 set preview images true
+line 117 set preview_images_method ueberzug
+'
 vim .config/ranger/scope.sh
-# line 157 video/*)
-# line 158 ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit 6
+# Go to these lines and remove the comment
+'
+line 157 video/*)
+line 158 ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit 6
+line 160 exit 1;;
+ '
 
 #- OPEN FILE EXTENSION WITH DEFAULT PROGRAM APPLICATION
-# It's configured on the 'rifle.conf' file, if you don't have it, do
-ranger copy-config=all
-
 vim .config/ranger/rifle.conf
 # Here we have a lot of different default applications to various file extensions, they will be read line by line, so the upper it is, the higher the priority
 
-
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! SET UP PRINTER EPSON
 
@@ -800,16 +812,18 @@ wihotspot
 sudo pacman -S xf86-input-synaptics
 
 # Create a conf file if don't exists
-sudo vim /etc/X11/xorg.conf.d/70-synaptics.conf
+sudo vim /etc/X11/xorg.conf.d/70-touchpad.conf
 
 # Paste the following:
 Section "InputClass"
     Identifier "touchpad"
-    Driver "synaptics"
+    Driver "libinput"
     MatchIsTouchpad "on"
         Option "TapButton1" "1"
         Option "TapButton2" "3"
         Option "TapButton3" "2"
+        Option "NaturalScrolling" "on"
+        Option "Tapping" "on"
         Option "VertEdgeScroll" "on"
         Option "VertTwoFingerScroll" "on"
         Option "HorizEdgeScroll" "on"
