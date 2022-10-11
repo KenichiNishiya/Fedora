@@ -28,7 +28,8 @@ xfce4-power-manager &
 mpd &
 #qlipper &
 #qbittorrent & # xdotool search --name "qBittorrent v4.4.3.1" windowminimize
-xfce-polkit &
+#xfce-polkit &
+lxqt-policykit-agent &
 nitrogen --restore
 
 #xbindkeys -f ~/.config/xbindkeys/.xbindkeysrc &
