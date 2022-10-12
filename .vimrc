@@ -41,7 +41,10 @@ set formatoptions-=cro
 set clipboard=unnamedplus
 
 " Persistent undo between opening and closing file
-set undofile
+"set undofile
+
+" Directory to put the .un files ^^^^^
+"set undodir /home/yori/.config/vim/
 
 " Sets vim to paste more than a few lines
 set viminfo='100,<10000000,s1000000,h
@@ -50,7 +53,7 @@ set viminfo='100,<10000000,s1000000,h
 set backupskip+=/var/spool/cron/*
 
 " Smart Indentation
-set smartindent
+" set smartindent
 
 " Convert tabs to spaces
 set expandtab

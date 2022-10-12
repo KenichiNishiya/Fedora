@@ -14,7 +14,7 @@ export PATH=/home/teruyo/.cargo/bin:/sbin:/usr/libexec:$PATH
 # export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Blue light filter
-redshift -P -O 3550
+redshift -P -O 3939
 
 # Start programs
 sxhkd &
@@ -28,7 +28,7 @@ xfce4-power-manager &
 mpd &
 #qlipper &
 #qbittorrent & # xdotool search --name "qBittorrent v4.4.3.1" windowminimize
-#xfce-polkit &
+#lxqt-powermanagement &
 lxqt-policykit-agent &
 nitrogen --restore
 

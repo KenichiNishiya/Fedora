@@ -10,6 +10,13 @@ super + shift + s
 super + shift + p
 	picom --experimental-backends -b || pkill picom
 
+# brightness
+#XF86MonBrightnessUp
+#    brightnessctl set 10%+ ; notify-send -t 1000 Backlight\ $(brightnessctl | grep % | cut -d ' ' -f4)
+
+#XF86MonBrightnessDown
+#    brightnessctl set 10%- ; notify-send -t 1000 Backlight\ $(brightnessctl | grep % | cut -d ' ' -f4)
+
 # mpd toggle
 super + shift + m
 	pkill -9 mpd || mpd

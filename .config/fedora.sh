@@ -1,4 +1,5 @@
 #! FEDORA
+sudo dnf install acpi alacritty AtomicParsley ark bleachbit brightnessctl cpu-x dolphin fcitx5 ffmpeg ffmpegthumbnailer ffmpegthumbs htop lutris megasync mpc mpd ncdu ncmpcpp network-manager-applet nm-connection-editor obs-studio okular pavucontrol perl-File-MimeInfo qbittorrent ranger redshift rofi spectacle speedtest-cli steam timeshift unrar vim vim-airline xfce4-power-manager xclip xrandr xprop xsel yt-dlp zsh acpi alacritty AtomicParsley ark bleachbit brightnessctl dolphin fcitx5 ffmpeg ffmpegthumbnailer ffmpegthumbs htop lutris megasync mpc mpd ncdu ncmpcpp network-manager-applet nm-connection-editor obs-studio okular pavucontrol perl-File-MimeInfo qbittorrent ranger redshift rofi spectacle speedtest-cli steam timeshift unrar vim vim-airline xfce4-power-manager xclip xrandr xprop xsel yt-dlp zsh
 
 acpi
 alacritty
@@ -6,6 +7,7 @@ AtomicParsley
 ark
 bleachbit
 brightnessctl
+cpu-x
 dolphin
 fcitx5
 ffmpeg
@@ -33,8 +35,12 @@ speedtest-cli
 steam
 timeshift
 unrar
+vim
+vim-airline
 xfce4-power-manager
 xclip
+xrandr
+xprop
 xsel
 yt-dlp
 zsh
@@ -100,12 +106,12 @@ hostname
 # https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Noto/Sans/complete/Noto%20Sans%20Medium%20Nerd%20Font%20Complete.ttf
 # https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/JetBrainsMono.zip
 
-sudo mkdir /usr/share/fonts/jetbrain-mono-fonts
-cp -r ~/Downloads/JetBrainsMono /usr/share/fonts/jetbrains-mono-fonts
+sudo mkdir /usr/share/fonts/jetbrains-mono-fonts
+sudo cp -r ~/Downloads/JetBrainsMono /usr/share/fonts/jetbrains-mono-fonts
 sudo chown yori:yori /usr/share/fonts/jetbrains-mono-fonts/JetBrainsMono
 
 sudo mkdir /usr/share/fonts/noto-nerd-font
-cp ~/Downloads/Downloads/Noto\ Sans\ Medium\ Nerd\ Font\ Complete.ttf /usr/share/fonts/noto-nerd-font
+sudo cp ~/Downloads/Noto\ Sans\ Medium\ Nerd\ Font\ Complete.ttf /usr/share/fonts/noto-nerd-font
 
 sudo dnf install google-noto-sans-jp-fonts
 # Reload the fonts
@@ -120,16 +126,19 @@ fc-match FontName
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! INSTALLING BSPWM AND OTHER THINGS
 sudo dnf install git bspwm rofi nitrogen sxhkd polybar dunst libnotify lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+
 sudo systemctl enable lightdm
+# Remeber to disable any other Display Manager if applicable, such as
+# sudo systemctl disable sddm
 cd /opt
-sudo git clone https://github.com/KenichiNishiya/ArchLinux.git
+sudo git clone https://github.com/KenichiNishiya/Fedora.git
 
 mkdir ~/.config/bspwm
-cp /opt/ArchLinux/.config/bspwm/bspwmrc /home/yori/.config/bspwm/
+cp /opt/Fedora/.config/bspwm/bspwmrc /home/yori/.config/bspwm/
 sudo chmod +x /home/yori/.config/bspwm/bspwmrc
 
 mkdir ~/.config/rofi
-cp /opt/ArchLinux/.config/rofi/config.rasi /home/yori/.config/rofi/
+cp /opt/Fedora/.config/rofi/config.rasi /home/yori/.config/rofi/
 
 mkdir ~/.config/rofi/shared
 vim ~/.config/rofi/shared/colors.rasi
@@ -146,18 +155,18 @@ urgent:         #FF5555FF;
 # https://github.com/adi1090x/rofi/tree/master/files/colors
 
 mkdir ~/.config/sxhkd
-cp /opt/ArchLinux/.config/sxhkd/sxhkdrc /home/yori/.config/sxhkd/
+cp /opt/Fedora/.config/sxhkd/sxhkdrc /home/yori/.config/sxhkd/
 
 mkdir ~/.config/polybar
-cp /opt/ArchLinux/.config/polybar/* /home/yori/.config/polybar/
+cp /opt/Fedora/.config/polybar/* /home/yori/.config/polybar/
 sudo chmod +x /home/yori/.config/polybar/launch.sh
 
 mkdir ~/.config/picom
-cp /opt/ArchLinux/.config/picom/picom.conf /home/yori/.config/picom/
+cp /opt/Fedora/.config/picom/picom.conf /home/yori/.config/picom/
 
 mkdir .config/dunst
-cp /opt/ArchLinux/.config/dunst/dunstrc ~/.config/dunst/
-# You can test with 
+cp /opt/Fedora/.config/dunst/dunstrc ~/.config/dunst/
+# Start it and test if you want
 notify-send Title Message
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
@@ -165,7 +174,7 @@ notify-send Title Message
 
 sudo dnf install alacritty
 mkdir ~/.config/alacritty
-cp /opt/ArchLinux/.config/alacritty/alacritty.yml ~/.config/alacritty/
+cp /opt/Fedora/.config/alacritty/alacritty.yml ~/.config/alacritty/
 
 # If you use multi monitor with different sizes, do the following to fix (if broken )the font:
 vim .profile
@@ -216,7 +225,6 @@ cd ~/.icons
 git clone https://github.com/m4thewz/dracula-icons
 
 # For the cursor we need to something different:
-# https://www.gnome-look.org/p/1669262
 # It needs to be in tar.gz format
 mv ~/.themes/dracula/kde/cursors/Dracula-cursors ~/.themes
 cd ~/.themes
@@ -235,21 +243,29 @@ sudo lxappearance
 sudo vim /usr/share/icons/default/index.theme
 sudo vim /usr/share/gtk-2.0/gtkrc
 
-# Also change the lightdm
-sudo cp ~/Pictures/.sysimg/ayy.jpg /usr/share/backgrounds
-sudo lightdm-gtk-greeter-settings
-
 # Now for the qt stuff
-kvantum
+kvantummanager
+sudo kvantummanger
 # Install/Update Theme > Select a Kvantum theme folder > /home/yori/.themes/dracula/kde/kvantum/Dracula-purple-solid > Choose > Install this theme
 # Change/Delete Theme > Select a theme: > Dracula-purple-solid > Use this theme
 qt5ct
+sudo qt5ct # Altough this won't work unless you set the env var on /etc/profile
 # Appearance > Style: > kvantum > Apply
 # Icon Theme > Dracula > Apply
 
 vim .profile
 # Paste the following line:
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+# Change the desktop background
+nitrogen
+# To always initailize with the same background, put the following on .profile
+nitrogen --restore
+
+# Also change the lightdm background
+sudo cp ~/Pictures/.sysimg/ayy.jpg /usr/share/backgrounds
+sudo cp ~/Pictures/.sysimg/suk.png /usr/share/backgrounds
+sudo lightdm-gtk-greeter-settings
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! CUSTOMIZE FIREFOX CSS
@@ -291,7 +307,8 @@ curl https://raw.githubusercontent.com/GeorgeFilipkin/pulsemixer/master/pulsemix
 #! POWER SAVING
 
 sudo dnf install xfce4-power-manager
-# This is a GUI app for power management
+sudo dnf install lxqt-powermanagement
+# These are GUI apps for power management, xfce's has brightness control, while lxqt don't
 
 #- auto-cpufreq
 # This shit is broken on Fedora, unless you use snap
@@ -378,12 +395,12 @@ reboot
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! RUN GUI PROGRAMS WHICH REQUIRES SUDO/ROOT
-# https://wiki.archlinux.org/title/Polkit#Configuration
+# https://wiki.Fedora.org/title/Polkit#Configuration
 
-sudo dnf install polkit xfce-polkit
+sudo dnf install polkit lxqt-policykit
 
 # You need to set it to auto start on .profile
-xfce-polkit &
+lxqt-policykit-agent &
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! WINE AND WINE DEPENDENCIES
@@ -426,7 +443,7 @@ xdg-open,firefox,konqueror,mozilla,netscape,galeon,opera,dillo
 #! MAKE A .desktop FILE FOR A LUTRIS GAME ENTRY FOR ROFI
 
 # Package needed to call the game via CLI
-sudo pacman -S python-magic
+sudo dnf install python-magic
 
 vim ~/.local/share/applications/NAMEOFTHEAPP.desktop
 
@@ -447,7 +464,7 @@ Keywords=Touhou, th
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! YOUTUBE-DLP (YT-DLP)
 
-sudo pacman -S yt-dlp atomicparsley ffmpeg
+sudo dnf install  yt-dlp AtomicParsley ffmpeg
 
 # Wat
 yt-dlp -o '~/Music/%(playlist_title)s/%(title)s.%(ext)s' -ciw -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 --add-metadata --cookies '~/Documents/ytdl/cookies-youtube-com.txt' --download-archive '~/Documents/ytdl/yt-dl_wat.txt' 'https://www.youtube.com/playlist?list=PLBYlt8Uh0EcxaT51BU5cyYxiGtN6JmoGL'
@@ -479,7 +496,7 @@ sudo ln -s /usr/bin/python3 /usr/bin/python
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! CHANGE DEFAULT APPLICATION TO OPEN A FILE TYPE
-# https://wiki.archlinux.org/title/default_applications
+# https://wiki.Fedora.org/title/default_applications
 
 sudo dnf install perl-File-MimeInfo
 
@@ -527,42 +544,45 @@ Internal Mic Boost
 # To add it, do:
 export PATH=/usr/libexec:/sbin:$PATH
 # You can put it on your .profile so it's persistent
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! RANGER CONFIGURATION
-'INCOMPLETE'
 sudo dnf install ranger
 
 #- RANGER SHOW IMAGE AND VIDEO THUMBNAIL
-
-sudo dnf copr enable tokiarew/ueberzug
 sudo dnf install ffmpegthumbnailer dnf-plugins-core ueberzug
+sudo dnf copr enable tokariew/ueberzug
+sudo dnf install  ueberzug
 
+# Copy all the base config files
+ranger copy-config=all
 vim .config/ranger/rc.conf
-# line 047 set set preview_script ~/.config/ranger/scope.sh
-# line 074 set preview images true
-# line 117 set preview_images_method ueberzug
-
+# Go to these lines and edit to be like these
+'
+line 047 set preview_script ~/.config/ranger/scope.sh
+line 074 set preview images true
+line 117 set preview_images_method ueberzug
+'
 vim .config/ranger/scope.sh
-# line 157 video/*)
-# line 158 ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit 6
+# Go to these lines and remove the comment
+'
+line 157 video/*)
+line 158 ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit 6
+line 160 exit 1;;
+ '
 
 #- OPEN FILE EXTENSION WITH DEFAULT PROGRAM APPLICATION
-# It's configured on the 'rifle.conf' file, if you don't have it, do
-ranger copy-config=all
-
 vim .config/ranger/rifle.conf
 # Here we have a lot of different default applications to various file extensions, they will be read line by line, so the upper it is, the higher the priority
 
-
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! SET UP PRINTER EPSON
 
@@ -681,7 +701,7 @@ sudo vim /etc/sysctl.d/60-mdapi.conf
 dev.i915.perf_stream_paranoid=0
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! STUTTERING ON WINE AND PROTON AUDIO
-# https://bbs.archlinux.org/viewtopic.php?id=276168
+# https://bbs.Fedora.org/viewtopic.php?id=276168
 # May be caused by audio buffer underrun
 
 vim ~/.config/pipewire/pipewire.conf
@@ -780,7 +800,7 @@ nmcli con down $CON_NAME
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! CREATE A HOTSPOT INTERNET CONNECTION (BEST WAY)
-# https://wiki.archlinux.org/title/software_access_point#Tools
+# https://wiki.Fedora.org/title/software_access_point#Tools
 
 yay -S linux-wifi-hotspot
 
@@ -796,16 +816,18 @@ wihotspot
 sudo pacman -S xf86-input-synaptics
 
 # Create a conf file if don't exists
-sudo vim /etc/X11/xorg.conf.d/70-synaptics.conf
+sudo vim /etc/X11/xorg.conf.d/70-touchpad.conf
 
 # Paste the following:
 Section "InputClass"
     Identifier "touchpad"
-    Driver "synaptics"
+    Driver "libinput"
     MatchIsTouchpad "on"
         Option "TapButton1" "1"
         Option "TapButton2" "3"
         Option "TapButton3" "2"
+        Option "NaturalScrolling" "on"
+        Option "Tapping" "on"
         Option "VertEdgeScroll" "on"
         Option "VertTwoFingerScroll" "on"
         Option "HorizEdgeScroll" "on"
@@ -818,6 +840,7 @@ Section "InputClass"
         Option "FingerLow" "20"
         Option "FingerHigh" "40"
         Option "MaxTapTime" "125"
+        Option "ScrollingPixelDistance" "7"
         Option      "VertScrollDelta"          "-111"
         Option      "HorizScrollDelta"         "-111"
 EndSection
@@ -825,7 +848,7 @@ EndSection
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! DISABLE MOUSE ACCELERATION
-# https://wiki.archlinux.org/title/Mouse_acceleration#Disabling_mouse_acceleration
+# https://wiki.Fedora.org/title/Mouse_acceleration#Disabling_mouse_acceleration
 
 sudo vim /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
 # Paste the following:
@@ -839,7 +862,7 @@ EndSection
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! JAVA APPLICATIONS GREY SCREEN
-# https://wiki.archlinux.org/title/Bspwm#Problems_with_Java_applications
+# https://wiki.Fedora.org/title/Bspwm#Problems_with_Java_applications
 
 sudo pacman -S wmname
 vim ~/.config/bspwm/bspwmrc
@@ -943,7 +966,7 @@ nndownload.py -u user@mail.com -p password --add-metadata -o '/home/teruyo/Music
 # Check if virtualization is enabled, must return a value higher than 0
 egrep -c '(vmx|svm)' /proc/cpuinfo
 
-sudo pacman -S qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat archlinux-keyring ebtables iptables dmidecode ethtool
+sudo pacman -S qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat Fedora-keyring ebtables iptables dmidecode ethtool
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
 sudo virsh net-start default
@@ -1037,8 +1060,10 @@ sudo systemctl restart libvirtd.service
 
 # INTERNET NOT WORKING
 # May be caused by a conflict of 2 network managers: 'systemd-networkd' and 'NetworkManager'. Disable one of them.
-# https://bbs.archlinux.org/viewtopic.php?id=273243&p=2
+# https://bbs.Fedora.org/viewtopic.php?id=273243&p=2
 sudo systemctl disable systemd-networkd
 reboot
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+
+lxqt-openssh-askpass lxqt-about lxqt-archiver enki falkon

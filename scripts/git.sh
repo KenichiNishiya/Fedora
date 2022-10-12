@@ -21,6 +21,7 @@ cp $HOME'.profile' $REPO'.profile'
 cp $HOME'.zshrc' $REPO'.zshrc'
 cp -r $HOME'Documents/dotfiles/' $REPO'.baka/'
 cp -r /home/yori/Documents/scripts/* $REPO'scripts/'
+cp $IN'nvim/init.vim' $OUT'nvim/init.vim'
 cd $REPO
 echo "Changed directory to $(pwd)"
 git add .
