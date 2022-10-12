@@ -426,16 +426,6 @@ env LC_ALL=ja_JP.UTF-8
 # LUTRIS: Paste the command above on the arguments part of the app launch
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! INSTALL OSU!
-
-sudo dnf install lutris
-# Choose to add a game, search for Osu! > Windows
-# Install on the default directory, may fail otherwise
-# After installing, do
-wine64 /home/yori/Games/osu/drive_c/osu/osu\!install.exe
-# On Lutris add an env var for japanese fonts, them you can play
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! WINE OPEN ON DEFAULT BROWSER
 # http://www.webupd8.org/2010/03/how-to-make-wine-open-links-in-your.html
 
@@ -586,18 +576,6 @@ vim .config/ranger/rifle.conf
 # Here we have a lot of different default applications to various file extensions, they will be read line by line, so the upper it is, the higher the priority
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! MAKE NEOVIM'S CONFIG FILE WORK ON ROOT USER
-
-# neovim checks for $XDG_CONFIG_DIRS/nvim/sysinit.vim for it's root config file
-# You need to initiate it on .profile:
-export XDG_CONFIG_DIRS=/etc/xdg
-
-sudo mkdir /etc/xdg/nvim
-sudo cp ~/.config/nvim/init.vim /etc/xdg/nvim/sysinit.vim
-
-# If you are using an alias, make an alias for sudo:
-alias sudo="sudo "
-
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
@@ -631,6 +609,17 @@ system-config-printer # Also know as "Print Settings" on rofi
 # Probably an issue related to security, disable or remove it with the following
 nmcli con down id pvpn-ipv6leak-protection
 nmcli connection delete id pvpn-ipv6leak-protection
+
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+#! VIM COPY AND PASTE TO THE SYSTEM CLIPBOARD
+
+# Best way to do it is by installing 'gvim' (even though we won't use it), on Arch you can't have both 'vim' and 'gvim' packages, however, by installing 'gvim' it will automatically install 'vim', so install the latter.
+sudo pacman -S gvim
+
+# On .vimrc, put the following line to remap the keybindings to copy and paste
+vnoremap <C-y> "+y
+map <C-p> "+p
+
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! SET EXTRA MOUSE BUTTONS
@@ -1076,5 +1065,5 @@ sudo systemctl disable systemd-networkd
 reboot
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! REMOVE A FEW UNWANTED PROGRAMS FROM LXQT
-sudo dnf remove lxqt-openssh-askpass lxqt-about lxqt-archiver enki falkon
+
+lxqt-openssh-askpass lxqt-about lxqt-archiver enki falkon

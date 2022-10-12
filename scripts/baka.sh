@@ -14,4 +14,5 @@ cp ~/.zsh_aliases ~/Documents/bakap/zsh_aliases/zsh_aliases-$day
 cp ~/.profile ~/Documents/bakap/profile/profile-$day
 cp ~/.zshrc ~/Documents/bakap/zshrc/zshrc-$day
 cp ~/Documents/fedora.sh ~/Documents/bakap/fedora/fedora.sh-$day
+cp ~/.config/compton.conf ~/Documents/bakap/compton-$day
 echo "Bakad up dot flies"

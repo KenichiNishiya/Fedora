@@ -1,6 +1,5 @@
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
-set nohlsearch
 set ignorecase              " case insensitive 
 set mouse=v                 " middle-click paste with 
 set incsearch               " incremental search
@@ -49,8 +48,3 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 set undodir=~/.config/nvim/undo-dir
 set undofile
 
-" Open file on the same line you last closed it
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif

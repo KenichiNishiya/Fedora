@@ -1,8 +1,7 @@
 #lightdm SOURCES THIS FILE
 export WINIT_X11_SCALE_FACTOR=1
-export XDG_CONFIG_DIRS=/etc/xdg
 export QT_QPA_PLATFORMTHEME=qt5ct
-export EDITOR=nvim
+export EDITOR=vim
 export MANGOHUD=0
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
@@ -32,7 +31,6 @@ mpd &
 #lxqt-powermanagement &
 lxqt-policykit-agent &
 nitrogen --restore
-compton &
 
 #xbindkeys -f ~/.config/xbindkeys/.xbindkeysrc &
 #easyeffects --gapplication-service &

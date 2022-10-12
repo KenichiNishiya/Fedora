@@ -32,7 +32,6 @@ mpd &
 #lxqt-powermanagement &
 lxqt-policykit-agent &
 nitrogen --restore
-compton &
 
 #xbindkeys -f ~/.config/xbindkeys/.xbindkeysrc &
 #easyeffects --gapplication-service &

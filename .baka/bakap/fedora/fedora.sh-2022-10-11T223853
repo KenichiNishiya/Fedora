@@ -426,16 +426,6 @@ env LC_ALL=ja_JP.UTF-8
 # LUTRIS: Paste the command above on the arguments part of the app launch
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! INSTALL OSU!
-
-sudo dnf install lutris
-# Choose to add a game, search for Osu! > Windows
-# Install on the default directory, may fail otherwise
-# After installing, do
-wine64 /home/yori/Games/osu/drive_c/osu/osu\!install.exe
-# On Lutris add an env var for japanese fonts, them you can play
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! WINE OPEN ON DEFAULT BROWSER
 # http://www.webupd8.org/2010/03/how-to-make-wine-open-links-in-your.html
 
