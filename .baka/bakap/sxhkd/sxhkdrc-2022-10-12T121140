@@ -8,7 +8,7 @@ super + shift + s
 
 # picom toggle
 super + shift + p
-	compton || pkill compton
+	picom --experimental-backends -b || pkill picom
 
 # brightness
 #XF86MonBrightnessUp
@@ -189,9 +189,6 @@ XF86AudioRaiseVolume
 
 XF86AudioMute
     /opt/pulsemixer --toggle-mute
-
-XF86AudioMute
-    amixer -D pulse sset Capture toggle
 
 # brightness 
 XF86MonBrightness + {Up,Down}

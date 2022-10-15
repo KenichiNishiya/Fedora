@@ -1,12 +1,12 @@
 #!/bin/bash
 
 ORIGIN=""
-TARGET="/home/teruyo/Music/on/"
+TARGET="/home/yori/Music/on/"
 NEW=0
 CT=1
 
-#if [ $(ls /home/teruyo/Music/on | wc -l) != 0 ]; then
-#rm /home/teruyo/Music/on/*
+#if [ $(ls /home/yori/Music/on | wc -l) != 0 ]; then
+#rm /home/yori/Music/on/*
 #fi
 
 echo "Updating database..."
@@ -14,16 +14,16 @@ echo "Updating database..."
 while [ $CT -le 4 ]
 do
     if [ $CT == 1 ];then
-    ORIGIN="/home/teruyo/Music/音楽/アニメ/"
+    ORIGIN="/home/yori/Music/音楽/アニメ/"
 
     elif [ $CT == 2 ];then
-    ORIGIN="/home/teruyo/Music/音楽/インストルメンタル/"
+    ORIGIN="/home/yori/Music/音楽/インストルメンタル/"
 
     elif [ $CT == 3 ];then
-    ORIGIN="/home/teruyo/Music/音楽/他/"
+    ORIGIN="/home/yori/Music/音楽/他/"
 
     elif [ $CT == 4 ];then
-    ORIGIN="/home/teruyo/Music/音楽/東方/"
+    ORIGIN="/home/yori/Music/音楽/東方/"
     fi
 
     COUNTFILES="$( ls $ORIGIN | wc -l )"

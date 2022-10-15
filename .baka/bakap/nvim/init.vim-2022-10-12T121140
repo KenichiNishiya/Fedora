@@ -1,12 +1,4 @@
 set nocompatible            " disable compatibility to old-time vi
-
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'vim-airline/vim-airline'
-Plug 'nvim-treesitter/nvim-treesitter'
-
-call plug#end()
-
 set showmatch               " show matching 
 set nohlsearch
 set ignorecase              " case insensitive 
@@ -23,7 +15,7 @@ set relativenumber
 set wildmode=longest,list   " get bash-like tab completions
 filetype plugin indent on   "allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
-"set mouse=a                 " enable mouse click
+set mouse=a                 " enable mouse click
 set clipboard=unnamedplus   " using system clipboard
 filetype plugin on
 "set cursorline              " highlight current cursorline

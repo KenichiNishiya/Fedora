@@ -1,5 +1,5 @@
 #! FEDORA
-sudo dnf install acpi alacritty AtomicParsley ark bleachbit brightnessctl cpu-x dolphin fcitx5 ffmpeg ffmpegthumbnailer ffmpegthumbs htop lutris megasync mpc mpd ncdu ncmpcpp network-manager-applet nm-connection-editor obs-studio okular pavucontrol perl-File-MimeInfo qbittorrent ranger redshift rofi spectacle speedtest-cli steam timeshift unrar vim vim-airline xfce4-power-manager xclip xrandr xprop xsel yt-dlp zsh acpi alacritty AtomicParsley ark bleachbit brightnessctl dolphin fcitx5 ffmpeg ffmpegthumbnailer ffmpegthumbs htop lutris megasync mpc mpd ncdu ncmpcpp network-manager-applet nm-connection-editor obs-studio okular pavucontrol perl-File-MimeInfo qbittorrent ranger redshift rofi spectacle speedtest-cli steam timeshift unrar vim vim-airline xfce4-power-manager xclip xrandr xprop xsel yt-dlp zsh mpv kde-connect
+sudo dnf install acpi alacritty AtomicParsley ark bleachbit brightnessctl cpu-x dolphin fcitx5 ffmpeg ffmpegthumbnailer ffmpegthumbs htop lutris megasync mpc mpd ncdu ncmpcpp network-manager-applet nm-connection-editor obs-studio okular pavucontrol perl-File-MimeInfo qbittorrent ranger redshift rofi spectacle speedtest-cli steam timeshift unrar vim vim-airline xfce4-power-manager xclip xrandr xprop xsel yt-dlp zsh acpi alacritty AtomicParsley ark bleachbit brightnessctl dolphin fcitx5 ffmpeg ffmpegthumbnailer ffmpegthumbs htop lutris megasync mpc mpd ncdu ncmpcpp network-manager-applet nm-connection-editor obs-studio okular pavucontrol perl-File-MimeInfo qbittorrent ranger redshift rofi spectacle speedtest-cli steam timeshift unrar vim vim-airline xfce4-power-manager xclip xrandr xprop xsel yt-dlp zsh
 
 acpi
 alacritty
@@ -14,14 +14,10 @@ ffmpeg
 ffmpegthumbnailer
 ffmpegthumbs
 htop
-kde-connect
-libva-intel-driver
-libva-utils
 lutris
 megasync
 mpc
 mpd
-mpv
 ncdu
 ncmpcpp
 network-manager-applet
@@ -397,9 +393,6 @@ sudo flatpak override --env=GTK_THEME=dracula
 # Might need to reboot
 reboot
 
-# If flatpak apps don't appear on rofi, paste this on .profile
-export XDG_DATA_DIRS=$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/
-
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! RUN GUI PROGRAMS WHICH REQUIRES SUDO/ROOT
 # https://wiki.Fedora.org/title/Polkit#Configuration
@@ -606,23 +599,6 @@ sudo cp ~/.config/nvim/init.vim /etc/xdg/nvim/sysinit.vim
 alias sudo="sudo "
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! NEOVIM PLUGINS
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-vim ~/.config/nvim/init.vim
-# Somewhere in the file, you start the plugin section with a call, and end it with another call
-
-"
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'vim-airline/vim-airline' # An exemple of plugin
-
-call plug#end()
-"
-# After adding a plugin, save and close the file.
-# Enter on any file and type :PlugInstall
-# To update plugins do :PlugUpdate
-# To remove plugins, first take it off from the file, then :PlugClean
-
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
@@ -636,7 +612,6 @@ call plug#end()
 # https://download.ebz.epson.net/dsc/du/02/DriverDownloadInfo.do?LG2=EN&CN2=&DSCMI=134381&DSCCHK=9edfca27f0a940d9e3f3156a3d46047ffbfe6d79
 yay -S epson-inkjet-printer-escpr epson-printer-utility cups-pdf print-manager cups ghostscript cups system-config-printer
 
-sudo dnf install epson-inkjet-printer-escpr cups-pdf cups ghostscript system-config-printer
 # You need to start CUPS service, maybe enable it
 sudo systemctl start cups
 sudo systemctl enable cups
@@ -1101,50 +1076,5 @@ sudo systemctl disable systemd-networkd
 reboot
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! ENABLE VAAPI FOR INTEL GPU
-# https://ask.fedoraproject.org/t/intel-graphics-best-practices-and-settings-for-hardware-acceleration/21119
-# https://forums.fedoraforum.org/showthread.php?325859-Broken-video-drivers-on-Fedora-33
-
-sudo dnf install libva-intel-driver intel-gpu-tools libva-utils libva-intel-hybrid-driver xorg-x11-drv-intel microcode_ctl intel-mediasdk intel-media-driver intel-gmmlib intel-clear-sans-fonts mesa-dri-drivers mesa-vulkan-drivers oneVPL
-reboot
-
-# You can test leaving a windows of this open: 
-sudo intel_gpu_top
-# And open a video file like this one:
-#https://test-videos.co.uk/bigbuckbunny/mp4-h264
-mpv --hwdec=auto Downloads/Big_Buck_Bunny_1080_10s_30MB.mp4
-
-# To verify if everything is good:
-vainfo
-
-# You can also do:
-glxinfo | grep "direct rendering"
-# If it says "Yes" then hardware acceleration is enabled
-
-# For Firefox, go to about:config and enable the following options:
-'media.hardware-video-decoding.enabled' > 'true' # This one may be already enabled
-'media.ffmpeg.vaapi.enabled' > 'true'
-# You can install the enhanced-h264ify addon to block the VP8, VP9 and AV1
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! KDE-CONNECT NOT FINDING DEVICES TO PAIR
-
-# Most likely an issue with firewall
-sudo systemctl stop firewalld
-# Maybe disable if not needed
-sudo systemctl disable firewalld
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! INSTALL SCRCPY
-
-sudo dnf enable copr zeno/scrcpy
-sudo dnf install scrcpy
-# You need to have ffmpeg installed
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! DOLPHIN DOESN'T RECOGNIZE ANDROID SMARTPHONE
-
-sudo dnf install kio_mtp
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! REMOVE A FEW UNWANTED PROGRAMS FROM LXQT
-sudo dnf remove lxqt-openssh-askpass lxqt-about lxqt-archiver enki falkon transmission-qt qterminal sddm
+sudo dnf remove lxqt-openssh-askpass lxqt-about lxqt-archiver enki falkon
