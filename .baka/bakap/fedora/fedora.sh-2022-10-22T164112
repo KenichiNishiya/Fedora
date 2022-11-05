@@ -564,7 +564,7 @@ export PATH=/usr/libexec:/sbin:$PATH
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! RANGER CONFIGURATION
-sudo dnf install ranger trash-cli
+sudo dnf install ranger
 
 #- RANGER SHOW IMAGE AND VIDEO THUMBNAIL
 sudo dnf install ffmpegthumbnailer dnf-plugins-core ueberzug
@@ -1144,28 +1144,6 @@ sudo dnf install scrcpy
 #! DOLPHIN DOESN'T RECOGNIZE ANDROID SMARTPHONE
 
 sudo dnf install kio_mtp
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! STARSHIP FOR COMMAND PROMPT
-sudo dnf install starship
-
-vim ~/.zshrc
-# Paste the following:
-'
-eval "$(starship init zsh)"
-'
-
-vim ~/.config/starship.toml
-# Paste the following:
-'
-add_newline = false
-
-[line_break]
-disabled = true
-
-[package]
-disabled = true
-'
-
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! REMOVE A FEW UNWANTED PROGRAMS FROM LXQT
 sudo dnf remove lxqt-openssh-askpass lxqt-about lxqt-archiver enki falkon transmission-qt qterminal sddm

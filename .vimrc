@@ -80,8 +80,8 @@ nnoremap <Up> <Up>zz
 nnoremap <Down> <Down>zz
 
 " esc in insert & visual mode
-inoremap kj <esc>
-vnoremap kj <esc>
+inoremap lk <esc>
+vnoremap lk <esc>
 
 " Copy and Paste to system clipboard
 vnoremap <C-y> "+y

@@ -52,14 +52,11 @@ nnoremap <Down> <Down>zz
 
 " esc in insert & visual mode
  
-inoremap kj <esc>
-vnoremap kj <esc>
+inoremap lkj <esc>
+vnoremap lkj <esc>
 
 " esc in command mode
-cnoremap kj <C-C>
-
-" Change timeout for esc
-set timeoutlen=100
+cnoremap lkj <C-C>
 
 " Stop from auto commenting
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
