@@ -1167,5 +1167,11 @@ disabled = true
 '
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+#! DISABLE / ENABLE WEBCAM CAMERA
+
+sudo modprobe -r uvcvideo
+sudo modprobe uvcvideo
+
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! REMOVE A FEW UNWANTED PROGRAMS FROM LXQT
 sudo dnf remove lxqt-openssh-askpass lxqt-about lxqt-archiver enki falkon transmission-qt qterminal sddm
