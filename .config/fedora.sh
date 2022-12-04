@@ -1,53 +1,5 @@
 #! FEDORA
-sudo dnf install acpi alacritty AtomicParsley ark bleachbit brightnessctl cpu-x dolphin fcitx5 ffmpeg ffmpegthumbnailer ffmpegthumbs htop lutris megasync mpc mpd ncdu ncmpcpp network-manager-applet nm-connection-editor obs-studio okular pavucontrol perl-File-MimeInfo qbittorrent ranger redshift rofi spectacle speedtest-cli steam timeshift unrar vim vim-airline xfce4-power-manager xclip xrandr xprop xsel yt-dlp zsh acpi alacritty AtomicParsley ark bleachbit brightnessctl dolphin fcitx5 ffmpeg ffmpegthumbnailer ffmpegthumbs htop lutris megasync mpc mpd ncdu ncmpcpp network-manager-applet nm-connection-editor obs-studio okular pavucontrol perl-File-MimeInfo qbittorrent ranger redshift rofi spectacle speedtest-cli steam timeshift unrar vim vim-airline xfce4-power-manager xclip xrandr xprop xsel yt-dlp zsh mpv kde-connect
-
-acpi
-alacritty
-AtomicParsley
-ark
-bleachbit
-brightnessctl
-cpu-x
-dolphin
-fcitx5
-ffmpeg
-ffmpegthumbnailer
-ffmpegthumbs
-htop
-kde-connect
-libva-intel-driver
-libva-utils
-lutris
-megasync
-mpc
-mpd
-mpv
-ncdu
-ncmpcpp
-network-manager-applet
-nm-connection-editor
-obs-studio
-okular
-pavucontrol
-perl-File-MimeInfo
-qbittorrent
-ranger
-redshift
-rofi
-spectacle
-speedtest-cli
-steam
-timeshift
-unrar
-vim
-vim-airline
-xfce4-power-manager
-xclip
-xrandr
-xprop
-xsel
-yt-dlp
-zsh
+sudo dnf install acpi alacritty AtomicParsley ark bleachbit brightnessctl dolphin fcitx5 ffmpeg ffmpegthumbnailer ffmpegthumbs htop lutris megasync mpc mpd ncdu ncmpcpp network-manager-applet nm-connection-editor obs-studio okular pavucontrol perl-File-MimeInfo qbittorrent ranger redshift rofi spectacle speedtest-cli steam timeshift unrar xfce4-power-manager xclip xrandr xprop xsel yt-dlp git bspwm rofi nitrogen sxhkd polybar dunst libnotify lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings alacritty zsh lxappearance qt5ct kvantum fcitx5 fcitx5-mozc fcitx5-configtool snapd thermald powertop power-profiles-daemon stress cpu-x flatpak polkit kdeconnectd
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! JOURNALCTL ERRORS
@@ -165,10 +117,17 @@ mkdir ~/.config/polybar
 cp /opt/Fedora/.config/polybar/* /home/yori/.config/polybar/
 sudo chmod +x /home/yori/.config/polybar/launch.sh
 
+mkdir ~/.config/nvim
+cp -r /opt/Fedora/.config/nvim/* /home/yori/.config/nvim/
+
+cp /opt/Fedora/.config/mpd /home/yori/.config/
+
+cp /opt/Fedora/.config/ncmpcpp /home/yori/.config/
+
 mkdir ~/.config/picom
 cp /opt/Fedora/.config/picom/picom.conf /home/yori/.config/picom/
 
-mkdir .config/dunst
+mkdir ~/.config/dunst
 cp /opt/Fedora/.config/dunst/dunstrc ~/.config/dunst/
 # Start it and test if you want
 notify-send Title Message
@@ -209,7 +168,7 @@ vim ~/.zshrc
 plugins=(zsh-autosuggestions colored-man-pages zsh-syntax-highlighting)
 
 # Set PS1 to show full path:
-vim .oh-my-zsh/themes/robbyrussell.zsh-theme
+vim ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
 # Change the %c% from the second line to %~%
 # Source or reopen the terminal
 
@@ -286,7 +245,7 @@ vim userChrome.css
 #! JAPANESE KEYBOARD INPUT
 # https://www.youtube.com/watch?v=lJoXhS4EUJs
 
-sudo dnf install fcitx5 fcitx5-mozc fcitx5-configtool fcitx5-gtk fcitx5-qt
+sudo dnf install fcitx5 fcitx5-mozc fcitx5-configtool 
 
 sudo vim ~/.profile
 # Paste the following somewhere in the file
@@ -397,9 +356,6 @@ sudo flatpak override --env=GTK_THEME=dracula
 # Might need to reboot
 reboot
 
-# If flatpak apps don't appear on rofi, paste this on .profile
-export XDG_DATA_DIRS=$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/
-
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! RUN GUI PROGRAMS WHICH REQUIRES SUDO/ROOT
 # https://wiki.Fedora.org/title/Polkit#Configuration
@@ -417,8 +373,8 @@ lxqt-policykit-agent &
 sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/36/winehq.repo
 sudo dnf install winehq-devel
 
-sudo dnf install alsa-plugins-pulseaudio.i686 glibc-devel.i686 glibc-devel libgcc.i686 libX11-devel.i686 freetype-devel.i686 libXcursor-devel.i686 libXi-devel.i686 libXext-devel.i686 libXxf86vm-devel.i686 libXrandr-devel.i686 libXinerama-devel.i686 mesa-libGLU-devel.i686 mesa-libOSMesa-devel.i686 libXrender-devel.i686 libpcap-devel.i686 ncurses-devel.i686 libzip-devel.i686 lcms2-devel.i686 zlib-devel.i686 libv4l-devel.i686 libgphoto2-devel.i686  cups-devel.i686 libxml2-devel.i686 openldap-devel.i686 libxslt-devel.i686 gnutls-devel.i686 libpng-devel.i686 flac-libs.i686 json-c.i686 libICE.i686 libSM.i686 libXtst.i686 libasyncns.i686 libedit.i686 liberation-narrow-fonts.noarch libieee1284.i686 libogg.i686 libsndfile.i686 libuuid.i686 libva.i686 libvorbis.i686 libwayland-client.i686 libwayland-server.i686 llvm-libs.i686 mesa-dri-drivers.i686 mesa-filesystem.i686 mesa-libEGL.i686 mesa-libgbm.i686 nss-mdns.i686 ocl-icd.i686 pulseaudio-libs.i686  sane-backends-libs.i686 tcp_wrappers-libs.i686 unixODBC.i686 samba-common-tools.x86_64 samba-libs.x86_64 samba-winbind.x86_64 samba-winbind-clients.x86_64 samba-winbind-modules.x86_64 mesa-libGL-devel.i686 fontconfig-devel.i686 libXcomposite-devel.i686 libtiff-devel.i686 openal-soft-devel.i686 mesa-libOpenCL-devel.i686 opencl-utils-devel.i686 alsa-lib-devel.i686 gsm-devel.i686 libjpeg-turbo-devel.i686 pulseaudio-libs-devel.i686 pulseaudio-libs-devel gtk3-devel.i686 libattr-devel.i686 libva-devel.i686 libexif-devel.i686 libexif.i686 glib2-devel.i686 mpg123-devel.i686 mpg123-devel.x86_64 libcom_err-devel.i686 libcom_err-devel.x86_64 libFAudio-devel.i686 libFAudio-devel.x86_64
-
+sudo dnf install alsa-plugins-pulseaudio.i686 glibc-devel.i686 glibc-devel libgcc.i686 libX11-devel.i686 freetype-devel.i686 libXcursor-devel.i686 libXi-devel.i686 libXext-devel.i686 libXxf86vm-devel.i686 libXrandr-devel.i686 libXinerama-devel.i686 mesa-libGLU-devel.i686 mesa-libOSMesa-devel.i686 libXrender-devel.i686 libpcap-devel.i686 ncurses-devel.i686 libzip-devel.i686 lcms2-devel.i686 zlib-devel.i686 libv4l-devel.i686 libgphoto2-devel.i686  cups-devel.i686 libxml2-devel.i686 openldap-devel.i686 libxslt-devel.i686 gnutls-devel.i686 libpng-devel.i686 flac-libs.i686 json-c.i686 libICE.i686 libSM.i686 libXtst.i686 libasyncns.i686 libedit.i686 liberation-narrow-fonts.noarch libieee1284.i686 libogg.i686 libsndfile.i686 libuuid.i686 libva.i686 libvorbis.i686 libwayland-client.i686 libwayland-server.i686 llvm-libs.i686 mesa-dri-drivers.i686 mesa-filesystem.i686 mesa-libEGL.i686 mesa-libgbm.i686 nss-mdns.i686 ocl-icd.i686 pulseaudio-libs.i686  sane-backends-libs.i686 tcp_wrappers-libs.i686 unixODBC.i686 samba-common-tools.x86_64 samba-libs.x86_64 samba-winbind.x86_64 samba-winbind-clients.x86_64 samba-winbind-modules.x86_64 mesa-libGL-devel.i686 fontconfig-devel.i686 libXcomposite-devel.i686 libtiff-devel.i686 openal-soft-devel.i686 mesa-libOpenCL-devel.i686 opencl-utils-devel.i686 alsa-lib-devel.i686 gsm-devel.i686 libjpeg-turbo-devel.i686 pulseaudio-libs-devel.i686 pulseaudio-libs-devel gtk3-devel.i686 libattr-devel.i686 libva-devel.i686 libexif-devel.i686 libexif.i686 glib2-devel.i686 mpg123-devel.x86_64 libcom_err-devel.i686 libcom_err-devel.x86_64 libFAudio-devel.i686 libFAudio-devel.x86_64
+mpg123-devel.i686 
 sudo dnf groupinstall "C Development Tools and Libraries"
 sudo dnf groupinstall "Development Tools"
 
@@ -431,16 +387,6 @@ env LANG=ja_JP.UTF-8 wine Touhou.exe
 env LC_ALL=ja_JP.UTF-8
 
 # LUTRIS: Paste the command above on the arguments part of the app launch
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! INSTALL OSU!
-
-sudo dnf install lutris
-# Choose to add a game, search for Osu! > Windows
-# Install on the default directory, may fail otherwise
-# After installing, do
-wine64 /home/yori/Games/osu/drive_c/osu/osu\!install.exe
-# On Lutris add an env var for japanese fonts, them you can play
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! WINE OPEN ON DEFAULT BROWSER
@@ -564,15 +510,15 @@ export PATH=/usr/libexec:/sbin:$PATH
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! RANGER CONFIGURATION
-sudo dnf install ranger trash-cli
+sudo dnf install ranger
 
 #- RANGER SHOW IMAGE AND VIDEO THUMBNAIL
-sudo dnf install ffmpegthumbnailer dnf-plugins-core ueberzug
+sudo dnf install ffmpegthumbnailer dnf-plugins-core 
 sudo dnf copr enable tokariew/ueberzug
-sudo dnf install  ueberzug
+sudo dnf install ueberzug
 
 # Copy all the base config files
-ranger copy-config=all
+ranger --copy-config=all
 vim .config/ranger/rc.conf
 # Go to these lines and edit to be like these
 '
@@ -584,7 +530,7 @@ vim .config/ranger/scope.sh
 # Go to these lines and remove the comment
 '
 line 157 video/*)
-line 158 ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit 6
+line 159 ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit 6
 line 160 exit 1;;
  '
 
@@ -593,36 +539,83 @@ vim .config/ranger/rifle.conf
 # Here we have a lot of different default applications to various file extensions, they will be read line by line, so the upper it is, the higher the priority
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! MAKE NEOVIM'S CONFIG FILE WORK ON ROOT USER
+#! SCRCPY TO CONTROL YOUR SMARTPHONE FROM PC
 
-# neovim checks for $XDG_CONFIG_DIRS/nvim/sysinit.vim for it's root config file
-# You need to initiate it on .profile:
-export XDG_CONFIG_DIRS=/etc/xdg
+sudo dnf copr enable zeno/scrcpy
+sudo dnf install scrcpy
 
-sudo mkdir /etc/xdg/nvim
-sudo cp ~/.config/nvim/init.vim /etc/xdg/nvim/sysinit.vim
-
-# If you are using an alias, make an alias for sudo:
-alias sudo="sudo "
+# Plug the device through USB
+# Search the IP on the phone configurations
+adb usb
+adb tcpip 5555
+adb connect 192.168.15.52 # Use your IP here
+# Unplug the device to run via Wi-fi
+# To run with less latency:
+scrcpy -m800 -b2M
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! NEOVIM PLUGINS
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-vim ~/.config/nvim/init.vim
-# Somewhere in the file, you start the plugin section with a call, and end it with another call
+#! CREATE A HOTSPOT INTERNET CONNECTION (BEST WAY)
 
-"
-call plug#begin('~/.local/share/nvim/plugged')
+sudo dnf install -y gtk3-devel gcc gcc-c++ kernel-devel pkg-config make hostapd qrencode-devel libpng-devel
+cd /opt
 
-Plug 'vim-airline/vim-airline' # An exemple of plugin
+git clone https://github.com/lakinduakash/linux-wifi-hotspot
+cd linux-wifi-hotspot
+sudo make
+sudo make install
 
-call plug#end()
-"
-# After adding a plugin, save and close the file.
-# Enter on any file and type :PlugInstall
-# To update plugins do :PlugUpdate
-# To remove plugins, first take it off from the file, then :PlugClean
+# To execute the GUI via cli:
+wihotspot
 
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+#! TRACKPAD WITH WEIRD CONFIG
+
+# Create a conf file if don't exists
+sudo vim /etc/X11/xorg.conf.d/70-touchpad.conf
+
+# Paste the following:
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+        Option "TapButton1" "1"
+        Option "TapButton2" "3"
+        Option "TapButton3" "2"
+        Option "NaturalScrolling" "on"
+        Option "Tapping" "on"
+        Option "VertEdgeScroll" "on"
+        Option "VertTwoFingerScroll" "on"
+        Option "HorizEdgeScroll" "on"
+        Option "HorizTwoFingerScroll" "on"
+        Option "CircularScrolling" "on"
+        Option "CircScrollTrigger" "2"
+        Option "EmulateTwoFingerMinZ" "40"
+        Option "EmulateTwoFingerMinW" "8"
+        Option "CoastingSpeed" "0"
+        Option "FingerLow" "20"
+        Option "FingerHigh" "40"
+        Option "MaxTapTime" "125"
+        Option      "VertScrollDelta"          "-111"
+        Option      "HorizScrollDelta"         "-111"
+EndSection
+
+
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+#! DISABLE MOUSE ACCELERATION
+# https://wiki.Fedora.org/title/Mouse_acceleration#Disabling_mouse_acceleration
+
+sudo vim /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
+# Paste the following:
+Section "InputClass"
+	Identifier "My Mouse"
+	Driver "libinput"
+	MatchIsPointer "yes"
+	Option "AccelProfile" "flat"
+	Option "AccelSpeed" "0"
+EndSection
+
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
@@ -634,8 +627,8 @@ call plug#end()
 
 # You will need epson's generic drivers, which can be found here:
 # https://download.ebz.epson.net/dsc/du/02/DriverDownloadInfo.do?LG2=EN&CN2=&DSCMI=134381&DSCCHK=9edfca27f0a940d9e3f3156a3d46047ffbfe6d79
+yay -S epson-inkjet-printer-escpr epson-printer-utility cups-pdf print-manager cups ghostscript cups system-config-printer
 
-sudo dnf install epson-inkjet-printer-escpr cups-pdf cups ghostscript system-config-printer
 # You need to start CUPS service, maybe enable it
 sudo systemctl start cups
 sudo systemctl enable cups
@@ -643,7 +636,7 @@ sudo systemctl enable cups
 # Now to setup the printer go to
 system-config-printer # Also know as "Print Settings" on rofi
 # From here, click on:
-"Server > Connect > CUPS server: /run/cups/cups.sock > Connect > Add > Network Printer > Forward > Apply"
+"Add > Network Printer > Forward > Apply"
 
 # CHANGE DEFAULT PAPER SIZE FOR PRINTING DOCUMENTS
 
@@ -655,6 +648,17 @@ system-config-printer # Also know as "Print Settings" on rofi
 # Probably an issue related to security, disable or remove it with the following
 nmcli con down id pvpn-ipv6leak-protection
 nmcli connection delete id pvpn-ipv6leak-protection
+
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+#! VIM COPY AND PASTE TO THE SYSTEM CLIPBOARD
+
+# Best way to do it is by installing 'gvim' (even though we won't use it), on Arch you can't have both 'vim' and 'gvim' packages, however, by installing 'gvim' it will automatically install 'vim', so install the latter.
+sudo pacman -S gvim
+
+# On .vimrc, put the following line to remap the keybindings to copy and paste
+vnoremap <C-y> "+y
+map <C-p> "+p
+
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! SET EXTRA MOUSE BUTTONS
@@ -833,69 +837,6 @@ nmcli con up $CON_NAME
 # Bring down the connection (reactivates wi-fi)
 nmcli con down $CON_NAME
 
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! CREATE A HOTSPOT INTERNET CONNECTION (BEST WAY)
-# https://wiki.Fedora.org/title/software_access_point#Tools
-
-yay -S linux-wifi-hotspot
-
-# There is a GUI, you can manually enter with:
-wihotspot
-
-# Wifi interface: wlp2s0
-# Wifi interface: wlp2s0
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! TRACKPAD WITH WEIRD CONFIG
-
-sudo pacman -S xf86-input-synaptics
-
-# Create a conf file if don't exists
-sudo vim /etc/X11/xorg.conf.d/70-touchpad.conf
-
-# Paste the following:
-Section "InputClass"
-    Identifier "touchpad"
-    Driver "libinput"
-    MatchIsTouchpad "on"
-        Option "TapButton1" "1"
-        Option "TapButton2" "3"
-        Option "TapButton3" "2"
-        Option "NaturalScrolling" "on"
-        Option "Tapping" "on"
-        Option "VertEdgeScroll" "on"
-        Option "VertTwoFingerScroll" "on"
-        Option "HorizEdgeScroll" "on"
-        Option "HorizTwoFingerScroll" "on"
-        Option "CircularScrolling" "on"
-        Option "CircScrollTrigger" "2"
-        Option "EmulateTwoFingerMinZ" "40"
-        Option "EmulateTwoFingerMinW" "8"
-        Option "CoastingSpeed" "0"
-        Option "FingerLow" "20"
-        Option "FingerHigh" "40"
-        Option "MaxTapTime" "125"
-        Option "ScrollingPixelDistance" "7"
-        Option      "VertScrollDelta"          "-111"
-        Option      "HorizScrollDelta"         "-111"
-EndSection
-
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! DISABLE MOUSE ACCELERATION
-# https://wiki.Fedora.org/title/Mouse_acceleration#Disabling_mouse_acceleration
-
-sudo vim /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
-# Paste the following:
-Section "InputClass"
-	Identifier "My Mouse"
-	Driver "libinput"
-	MatchIsPointer "yes"
-	Option "AccelProfile" "flat"
-	Option "AccelSpeed" "0"
-EndSection
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! JAVA APPLICATIONS GREY SCREEN
 # https://wiki.Fedora.org/title/Bspwm#Problems_with_Java_applications
 
@@ -968,18 +909,6 @@ priority = 90
 
 systemctl restart --user pipewire-media-session pipewire-pulse pipewire
 # May need to unplug and plug the headphone, maybe reboot
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! SCRCPY TO CONTROL YOUR SMARTPHONE FROM PC
-
-sudo pacman -S scrcpy
-# Plug the device through USB
-# Search the IP on the phone configurations
-adb tcpip 5555
-adb connect 192.168.15.52 # Use your IP here
-# Unplug the device to run via Wi-fi
-# To run with less latency:
-scrcpy -m800 -b2M
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! TIMESHIFT DON'T MAKE AUTOMATIC SNAPSHOTS
@@ -1100,78 +1029,3 @@ sudo systemctl disable systemd-networkd
 reboot
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! ENABLE VAAPI FOR INTEL GPU
-# https://ask.fedoraproject.org/t/intel-graphics-best-practices-and-settings-for-hardware-acceleration/21119
-# https://forums.fedoraforum.org/showthread.php?325859-Broken-video-drivers-on-Fedora-33
-
-sudo dnf install libva-intel-driver intel-gpu-tools libva-utils libva-intel-hybrid-driver xorg-x11-drv-intel microcode_ctl intel-mediasdk intel-media-driver intel-gmmlib intel-clear-sans-fonts mesa-dri-drivers mesa-vulkan-drivers oneVPL
-reboot
-
-# You can test leaving a windows of this open: 
-sudo intel_gpu_top
-# And open a video file like this one:
-#https://test-videos.co.uk/bigbuckbunny/mp4-h264
-mpv --hwdec=auto Downloads/Big_Buck_Bunny_1080_10s_30MB.mp4
-
-# To verify if everything is good:
-vainfo
-
-# You can also do:
-glxinfo | grep "direct rendering"
-# If it says "Yes" then hardware acceleration is enabled
-
-# For Firefox, go to about:config and enable the following options:
-'media.hardware-video-decoding.enabled' > 'true' # This one may be already enabled
-'media.ffmpeg.vaapi.enabled' > 'true'
-# You can install the enhanced-h264ify addon to block the VP8, VP9 and AV1
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! KDE-CONNECT NOT FINDING DEVICES TO PAIR
-
-# Most likely an issue with firewall
-sudo systemctl stop firewalld
-# Maybe disable if not needed
-sudo systemctl disable firewalld
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! INSTALL SCRCPY
-
-sudo dnf enable copr zeno/scrcpy
-sudo dnf install scrcpy
-# You need to have ffmpeg installed
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! DOLPHIN DOESN'T RECOGNIZE ANDROID SMARTPHONE
-
-sudo dnf install kio_mtp
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! STARSHIP FOR COMMAND PROMPT
-sudo dnf install starship
-
-vim ~/.zshrc
-# Paste the following:
-'
-eval "$(starship init zsh)"
-'
-
-vim ~/.config/starship.toml
-# Paste the following:
-'
-add_newline = false
-
-[line_break]
-disabled = true
-
-[package]
-disabled = true
-'
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! DISABLE / ENABLE WEBCAM CAMERA
-
-sudo modprobe -r uvcvideo
-sudo modprobe uvcvideo
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! REMOVE A FEW UNWANTED PROGRAMS FROM LXQT
-sudo dnf remove lxqt-openssh-askpass lxqt-about lxqt-archiver enki falkon transmission-qt qterminal sddm

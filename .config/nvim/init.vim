@@ -1,11 +1,11 @@
 set nocompatible            " disable compatibility to old-time vi
 
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'vim-airline/vim-airline'
-Plug 'nvim-treesitter/nvim-treesitter'
-
-call plug#end()
+"call plug#begin('~/.local/share/nvim/plugged')
+"
+"Plug 'vim-airline/vim-airline'
+"Plug 'nvim-treesitter/nvim-treesitter'
+"
+"call plug#end()
 
 "set cursorline  
 "hi CursorLine   cterm=NONE ctermbg=black ctermfg=white
