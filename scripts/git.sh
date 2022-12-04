@@ -19,7 +19,7 @@ cp $HOME'.zsh_aliases' $REPO'.zsh_aliases'
 cp $HOME'.profile' $REPO'.profile'
 cp $HOME'.zshrc' $REPO'.zshrc'
 #cp $IN'compton.conf' $REPO'compton.conf'
-cp -r $HOME'.config/bakap/' $REPO'bakap/'
+cp -r $HOME'.config/bakap/' $REPO
 cp -r /home/yori/Documents/scripts/* $REPO'scripts/'
 cp $IN'nvim/init.vim' $OUT'nvim/init.vim'
 cd $REPO
