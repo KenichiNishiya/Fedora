@@ -1,45 +1,16 @@
 #! FEDORA
+sudo dnf install acpi alacritty AtomicParsley ark bleachbit brightnessctl dolphin fcitx5 ffmpeg ffmpegthumbnailer ffmpegthumbs htop lutris megasync mpc mpd ncdu ncmpcpp network-manager-applet nm-connection-editor obs-studio okular pavucontrol perl-File-MimeInfo qbittorrent ranger redshift rofi spectacle speedtest-cli steam timeshift unrar xfce4-power-manager xclip xrandr xprop xsel yt-dlp git bspwm rofi nitrogen sxhkd polybar dunst libnotify lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings alacritty zsh lxappearance qt5ct kvantum fcitx5 fcitx5-mozc fcitx5-configtool snapd thermald powertop power-profiles-daemon stress cpu-x flatpak polkit kdeconnectd qlipper
 
-acpi
-alacritty
-AtomicParsley
-ark
-bleachbit
-brightnessctl
-dolphin
-fcitx5
-ffmpeg
-ffmpegthumbnailer
-ffmpegthumbs
-htop
-lutris
-megasync
-mpc
-mpd
-ncdu
-ncmpcpp
-network-manager-applet
-nm-connection-editor
-obs-studio
-okular
-pavucontrol
-perl-File-MimeInfo
-qbittorrent
-ranger
-redshift
-rofi
-spectacle
-speedtest-cli
-steam
-timeshift
-unrar
-xfce4-power-manager
-xclip
-xrandr
-xprop
-xsel
-yt-dlp
-zsh
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+#! SET GITHUB FILES BACKUP  
+
+mkdir -p ~/re/git
+cd ~/re/git
+git clone https://github.com/KenichiNishiya/Fedora.git
+
+mkdir ~/.config/bakap
+cd ~/.config/bakap
+mkdir alacritty;mkdir bspwm;mkdir dunst;mkdir polybar;mkdir rofi;mkdir sxhkd;mkdir nvim;mkdir zsh_aliases;mkdir profile;mkdir zshrc;mkdir fedora
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! JOURNALCTL ERRORS
@@ -126,15 +97,14 @@ sudo dnf install git bspwm rofi nitrogen sxhkd polybar dunst libnotify lightdm l
 sudo systemctl enable lightdm
 # Remeber to disable any other Display Manager if applicable, such as
 # sudo systemctl disable sddm
-cd /opt
-sudo git clone https://github.com/KenichiNishiya/Fedora.git
+#sudo git clone https://github.com/KenichiNishiya/Fedora.git
 
 mkdir ~/.config/bspwm
-cp /opt/Fedora/.config/bspwm/bspwmrc /home/yori/.config/bspwm/
-sudo chmod +x /home/yori/.config/bspwm/bspwmrc
+cp ~/re/git/Fedora/.config/bspwm/bspwmrc ~/.config/bspwm/
+sudo chmod +x ~/.config/bspwm/bspwmrc
 
 mkdir ~/.config/rofi
-cp /opt/Fedora/.config/rofi/config.rasi /home/yori/.config/rofi/
+cp ~/re/git/Fedora/.config/rofi/config.rasi ~/.config/rofi/
 
 mkdir ~/.config/rofi/shared
 vim ~/.config/rofi/shared/colors.rasi
@@ -151,18 +121,26 @@ urgent:         #FF5555FF;
 # https://github.com/adi1090x/rofi/tree/master/files/colors
 
 mkdir ~/.config/sxhkd
-cp /opt/Fedora/.config/sxhkd/sxhkdrc /home/yori/.config/sxhkd/
+cp ~/re/git/Fedora/.config/sxhkd/sxhkdrc ~/.config/sxhkd/
 
 mkdir ~/.config/polybar
-cp /opt/Fedora/.config/polybar/* /home/yori/.config/polybar/
-sudo chmod +x /home/yori/.config/polybar/launch.sh
+cp ~/re/git/Fedora/.config/polybar/* ~/.config/polybar/
+sudo chmod +x ~/.config/polybar/launch.sh
+
+mkdir ~/.config/nvim
+cp -r ~/re/git/Fedora/.config/nvim/* ~/.config/nvim/
+
+cp ~/re/git/Fedora/.config/mpd ~/.config/
+
+cp ~/re/git/Fedora/.config/ncmpcpp ~/.config/
 
 mkdir ~/.config/picom
-cp /opt/Fedora/.config/picom/picom.conf /home/yori/.config/picom/
+cp ~/re/git/Fedora/.config/picom/picom.conf ~/.config/picom/
 
-mkdir .config/dunst
-cp /opt/Fedora/.config/dunst/dunstrc ~/.config/dunst/
-# Start it and test if you want
+mkdir ~/.config/dunst
+cp ~/re/git/Fedora/.config/dunst/dunstrc ~/.config/dunst/
+
+# Start dusnst and test if you want
 notify-send Title Message
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
@@ -201,7 +179,7 @@ vim ~/.zshrc
 plugins=(zsh-autosuggestions colored-man-pages zsh-syntax-highlighting)
 
 # Set PS1 to show full path:
-vim .oh-my-zsh/themes/robbyrussell.zsh-theme
+vim ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
 # Change the %c% from the second line to %~%
 # Source or reopen the terminal
 
@@ -242,7 +220,7 @@ sudo vim /usr/share/gtk-2.0/gtkrc
 # Now for the qt stuff
 kvantummanager
 sudo kvantummanger
-# Install/Update Theme > Select a Kvantum theme folder > /home/yori/.themes/dracula/kde/kvantum/Dracula-purple-solid > Choose > Install this theme
+# Install/Update Theme > Select a Kvantum theme folder > ~/.themes/dracula/kde/kvantum/Dracula-purple-solid > Choose > Install this theme
 # Change/Delete Theme > Select a theme: > Dracula-purple-solid > Use this theme
 qt5ct
 sudo qt5ct # Altough this won't work unless you set the env var on /etc/profile
@@ -278,7 +256,7 @@ vim userChrome.css
 #! JAPANESE KEYBOARD INPUT
 # https://www.youtube.com/watch?v=lJoXhS4EUJs
 
-sudo dnf install fcitx5 fcitx5-mozc fcitx5-configtool fcitx5-gtk fcitx5-qt
+sudo dnf install fcitx5 fcitx5-mozc fcitx5-configtool 
 
 sudo vim ~/.profile
 # Paste the following somewhere in the file
@@ -406,8 +384,8 @@ lxqt-policykit-agent &
 sudo dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/36/winehq.repo
 sudo dnf install winehq-devel
 
-sudo dnf install alsa-plugins-pulseaudio.i686 glibc-devel.i686 glibc-devel libgcc.i686 libX11-devel.i686 freetype-devel.i686 libXcursor-devel.i686 libXi-devel.i686 libXext-devel.i686 libXxf86vm-devel.i686 libXrandr-devel.i686 libXinerama-devel.i686 mesa-libGLU-devel.i686 mesa-libOSMesa-devel.i686 libXrender-devel.i686 libpcap-devel.i686 ncurses-devel.i686 libzip-devel.i686 lcms2-devel.i686 zlib-devel.i686 libv4l-devel.i686 libgphoto2-devel.i686  cups-devel.i686 libxml2-devel.i686 openldap-devel.i686 libxslt-devel.i686 gnutls-devel.i686 libpng-devel.i686 flac-libs.i686 json-c.i686 libICE.i686 libSM.i686 libXtst.i686 libasyncns.i686 libedit.i686 liberation-narrow-fonts.noarch libieee1284.i686 libogg.i686 libsndfile.i686 libuuid.i686 libva.i686 libvorbis.i686 libwayland-client.i686 libwayland-server.i686 llvm-libs.i686 mesa-dri-drivers.i686 mesa-filesystem.i686 mesa-libEGL.i686 mesa-libgbm.i686 nss-mdns.i686 ocl-icd.i686 pulseaudio-libs.i686  sane-backends-libs.i686 tcp_wrappers-libs.i686 unixODBC.i686 samba-common-tools.x86_64 samba-libs.x86_64 samba-winbind.x86_64 samba-winbind-clients.x86_64 samba-winbind-modules.x86_64 mesa-libGL-devel.i686 fontconfig-devel.i686 libXcomposite-devel.i686 libtiff-devel.i686 openal-soft-devel.i686 mesa-libOpenCL-devel.i686 opencl-utils-devel.i686 alsa-lib-devel.i686 gsm-devel.i686 libjpeg-turbo-devel.i686 pulseaudio-libs-devel.i686 pulseaudio-libs-devel gtk3-devel.i686 libattr-devel.i686 libva-devel.i686 libexif-devel.i686 libexif.i686 glib2-devel.i686 mpg123-devel.i686 mpg123-devel.x86_64 libcom_err-devel.i686 libcom_err-devel.x86_64 libFAudio-devel.i686 libFAudio-devel.x86_64
-
+sudo dnf install alsa-plugins-pulseaudio.i686 glibc-devel.i686 glibc-devel libgcc.i686 libX11-devel.i686 freetype-devel.i686 libXcursor-devel.i686 libXi-devel.i686 libXext-devel.i686 libXxf86vm-devel.i686 libXrandr-devel.i686 libXinerama-devel.i686 mesa-libGLU-devel.i686 mesa-libOSMesa-devel.i686 libXrender-devel.i686 libpcap-devel.i686 ncurses-devel.i686 libzip-devel.i686 lcms2-devel.i686 zlib-devel.i686 libv4l-devel.i686 libgphoto2-devel.i686  cups-devel.i686 libxml2-devel.i686 openldap-devel.i686 libxslt-devel.i686 gnutls-devel.i686 libpng-devel.i686 flac-libs.i686 json-c.i686 libICE.i686 libSM.i686 libXtst.i686 libasyncns.i686 libedit.i686 liberation-narrow-fonts.noarch libieee1284.i686 libogg.i686 libsndfile.i686 libuuid.i686 libva.i686 libvorbis.i686 libwayland-client.i686 libwayland-server.i686 llvm-libs.i686 mesa-dri-drivers.i686 mesa-filesystem.i686 mesa-libEGL.i686 mesa-libgbm.i686 nss-mdns.i686 ocl-icd.i686 pulseaudio-libs.i686  sane-backends-libs.i686 tcp_wrappers-libs.i686 unixODBC.i686 samba-common-tools.x86_64 samba-libs.x86_64 samba-winbind.x86_64 samba-winbind-clients.x86_64 samba-winbind-modules.x86_64 mesa-libGL-devel.i686 fontconfig-devel.i686 libXcomposite-devel.i686 libtiff-devel.i686 openal-soft-devel.i686 mesa-libOpenCL-devel.i686 opencl-utils-devel.i686 alsa-lib-devel.i686 gsm-devel.i686 libjpeg-turbo-devel.i686 pulseaudio-libs-devel.i686 pulseaudio-libs-devel gtk3-devel.i686 libattr-devel.i686 libva-devel.i686 libexif-devel.i686 libexif.i686 glib2-devel.i686 mpg123-devel.x86_64 libcom_err-devel.i686 libcom_err-devel.x86_64 libFAudio-devel.i686 libFAudio-devel.x86_64
+mpg123-devel.i686 
 sudo dnf groupinstall "C Development Tools and Libraries"
 sudo dnf groupinstall "Development Tools"
 
@@ -469,19 +447,19 @@ yt-dlp -o '~/Music/%(playlist_title)s/%(title)s.%(ext)s' -ciw -f 'bestvideo[ext=
 yt-dlp -f bestaudio -ciw --newline -o '~/Music/%(playlist_title)s/%(title)s.%(ext)s' -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata -ciw --download-archive '~/Documents/ytdl/yt-dl_ongaku.txt' --cookies '~/Documents/ytdl/cookies-youtube-com.txt' 'https://www.youtube.com/playlist?list=PLBYlt8Uh0EcwSftTxeFaI3-6cqcQImKPZ'
 
 # Video with subtitles and description on a separate folder
-yt-dlp -o '/media/sf_Music/youtube-dl/%(playlist_title)s/%(title)s/%(title)s.%(ext)s' -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 --add-metadata --audio-quality 0 --embed-thumbnail -ciw --all-subs --write-description --download-archive '/media/sf_Music/youtube-dl/yt-dl.txt --cookies /home/teruyoh/Desktop/cookies-youtube-com.txt' 'https://www.youtube.com/playlist?list=PLBYlt8Uh0EcwSftTxeFaI3-6cqcQImKPZ'
+yt-dlp -o '/media/sf_Music/youtube-dl/%(playlist_title)s/%(title)s/%(title)s.%(ext)s' -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 --add-metadata --audio-quality 0 --embed-thumbnail -ciw --all-subs --write-description --download-archive '/media/sf_Music/youtube-dl/yt-dl.txt --cookies /home/yori/Desktop/cookies-youtube-com.txt' 'https://www.youtube.com/playlist?list=PLBYlt8Uh0EcwSftTxeFaI3-6cqcQImKPZ'
 
 # Generic video
-yy-dlp -o '/media/sf_Music/youtube-dl/%(playlist_title)s/%(title)s.%(ext)s' -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 --add-metadata --cookies '/home/teruyoh/Desktop/cookies-youtube-com.txt' --download-archive yt-dl_video.txt ''
+yy-dlp -o '/media/sf_Music/youtube-dl/%(playlist_title)s/%(title)s.%(ext)s' -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 --add-metadata --cookies '/home/yori/Desktop/cookies-youtube-com.txt' --download-archive yt-dl_video.txt ''
 
 # Generic audio only
-yt-dlp -f bestaudio -o '/media/sf_Music/youtube-dl/%(playlist_title)s/%(title)s.%(ext)s' -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata -ciw --download-archive yt-dl_audio.txt --cookies '/home/teruyoh/Desktop/cookies-youtube-com.txt' 'https://www.youtube.com/playlist?list=PLBYlt8Uh0EcwSftTxeFaI3-6cqcQImKPZ'
+yt-dlp -f bestaudio -o '/media/sf_Music/youtube-dl/%(playlist_title)s/%(title)s.%(ext)s' -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata -ciw --download-archive yt-dl_audio.txt --cookies '/home/yori/Desktop/cookies-youtube-com.txt' 'https://www.youtube.com/playlist?list=PLBYlt8Uh0EcwSftTxeFaI3-6cqcQImKPZ'
 
 # until ;do sleep 5; done //set a 5 sec delay between donwloads
 
 #'%(autonumber)s - %(title)s.%(ext)s'
 
-#/home/teruyoh/youtube-dl/%(title)s.%(ext)s #directory to where it'll download, if don't exists it creates it, but need to use sudo and it'll be locked
+#/home/yori/youtube-dl/%(title)s.%(ext)s #directory to where it'll download, if don't exists it creates it, but need to use sudo and it'll be locked
 #sudo chown -R $USER: $HOME
 #to unlock
 
@@ -546,12 +524,12 @@ export PATH=/usr/libexec:/sbin:$PATH
 sudo dnf install ranger
 
 #- RANGER SHOW IMAGE AND VIDEO THUMBNAIL
-sudo dnf install ffmpegthumbnailer dnf-plugins-core ueberzug
+sudo dnf install ffmpegthumbnailer dnf-plugins-core 
 sudo dnf copr enable tokariew/ueberzug
-sudo dnf install  ueberzug
+sudo dnf install ueberzug
 
 # Copy all the base config files
-ranger copy-config=all
+ranger --copy-config=all
 vim .config/ranger/rc.conf
 # Go to these lines and edit to be like these
 '
@@ -563,7 +541,7 @@ vim .config/ranger/scope.sh
 # Go to these lines and remove the comment
 '
 line 157 video/*)
-line 158 ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit 6
+line 159 ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit 6
 line 160 exit 1;;
  '
 
@@ -572,7 +550,86 @@ vim .config/ranger/rifle.conf
 # Here we have a lot of different default applications to various file extensions, they will be read line by line, so the upper it is, the higher the priority
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+#! SCRCPY TO CONTROL YOUR SMARTPHONE FROM PC
+
+sudo dnf copr enable zeno/scrcpy
+sudo dnf install scrcpy
+
+# Plug the device through USB
+# Search the IP on the phone configurations
+adb usb
+adb tcpip 5555
+adb connect 192.168.15.52 # Use your IP here
+# Unplug the device to run via Wi-fi
+# To run with less latency:
+scrcpy -m800 -b2M
+
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+#! CREATE A HOTSPOT INTERNET CONNECTION (BEST WAY)
+
+sudo dnf install -y gtk3-devel gcc gcc-c++ kernel-devel pkg-config make hostapd qrencode-devel libpng-devel
+cd /opt
+
+git clone https://github.com/lakinduakash/linux-wifi-hotspot
+cd linux-wifi-hotspot
+sudo make
+sudo make install
+
+# To execute the GUI via cli:
+wihotspot
+
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+#! TRACKPAD WITH WEIRD CONFIG
+
+# Create a conf file if don't exists
+sudo vim /etc/X11/xorg.conf.d/70-touchpad.conf
+
+# Paste the following:
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+        Option "TapButton1" "1"
+        Option "TapButton2" "3"
+        Option "TapButton3" "2"
+        Option "NaturalScrolling" "on"
+        Option "Tapping" "on"
+        Option "VertEdgeScroll" "on"
+        Option "VertTwoFingerScroll" "on"
+        Option "HorizEdgeScroll" "on"
+        Option "HorizTwoFingerScroll" "on"
+        Option "CircularScrolling" "on"
+        Option "CircScrollTrigger" "2"
+        Option "EmulateTwoFingerMinZ" "40"
+        Option "EmulateTwoFingerMinW" "8"
+        Option "CoastingSpeed" "0"
+        Option "FingerLow" "20"
+        Option "FingerHigh" "40"
+        Option "MaxTapTime" "125"
+        Option      "VertScrollDelta"          "-111"
+        Option      "HorizScrollDelta"         "-111"
+EndSection
+
+
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+#! DISABLE MOUSE ACCELERATION
+# https://wiki.Fedora.org/title/Mouse_acceleration#Disabling_mouse_acceleration
+
+sudo vim /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
+# Paste the following:
+Section "InputClass"
+	Identifier "My Mouse"
+	Driver "libinput"
+	MatchIsPointer "yes"
+	Option "AccelProfile" "flat"
+	Option "AccelSpeed" "0"
+EndSection
+
+'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
+#! COPY TOKEN TO THE CLIPBOARD
+
+alias tk="echo 'token' | xclip -selection c"
+
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
@@ -755,7 +812,7 @@ sudo vim /etc/sudoers.d/filename
 # It's recommended to put your username as the filename in order to better manage sudoers
 
 # Paste the following, changing to your username and program binary location
-teruyo ALL=(ALL) NOPASSWD:/usr/bin/umount,/bin/umount
+yori ALL=(ALL) NOPASSWD:/usr/bin/umount,/bin/umount
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! EMOJIS
@@ -794,68 +851,6 @@ nmcli con up $CON_NAME
 # Bring down the connection (reactivates wi-fi)
 nmcli con down $CON_NAME
 
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! CREATE A HOTSPOT INTERNET CONNECTION (BEST WAY)
-# https://wiki.Fedora.org/title/software_access_point#Tools
-
-yay -S linux-wifi-hotspot
-
-# There is a GUI, you can manually enter with:
-wihotspot
-
-# Wifi interface: wlp2s0
-# Wifi interface: wlp2s0
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! TRACKPAD WITH WEIRD CONFIG
-
-sudo pacman -S xf86-input-synaptics
-
-# Create a conf file if don't exists
-sudo vim /etc/X11/xorg.conf.d/70-touchpad.conf
-
-# Paste the following:
-Section "InputClass"
-    Identifier "touchpad"
-    Driver "libinput"
-    MatchIsTouchpad "on"
-        Option "TapButton1" "1"
-        Option "TapButton2" "3"
-        Option "TapButton3" "2"
-        Option "NaturalScrolling" "on"
-        Option "Tapping" "on"
-        Option "VertEdgeScroll" "on"
-        Option "VertTwoFingerScroll" "on"
-        Option "HorizEdgeScroll" "on"
-        Option "HorizTwoFingerScroll" "on"
-        Option "CircularScrolling" "on"
-        Option "CircScrollTrigger" "2"
-        Option "EmulateTwoFingerMinZ" "40"
-        Option "EmulateTwoFingerMinW" "8"
-        Option "CoastingSpeed" "0"
-        Option "FingerLow" "20"
-        Option "FingerHigh" "40"
-        Option "MaxTapTime" "125"
-        Option      "VertScrollDelta"          "-111"
-        Option      "HorizScrollDelta"         "-111"
-EndSection
-
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! DISABLE MOUSE ACCELERATION
-# https://wiki.Fedora.org/title/Mouse_acceleration#Disabling_mouse_acceleration
-
-sudo vim /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
-# Paste the following:
-Section "InputClass"
-	Identifier "My Mouse"
-	Driver "libinput"
-	MatchIsPointer "yes"
-	Option "AccelProfile" "flat"
-	Option "AccelSpeed" "0"
-EndSection
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! JAVA APPLICATIONS GREY SCREEN
 # https://wiki.Fedora.org/title/Bspwm#Problems_with_Java_applications
 
@@ -930,18 +925,6 @@ systemctl restart --user pipewire-media-session pipewire-pulse pipewire
 # May need to unplug and plug the headphone, maybe reboot
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
-#! SCRCPY TO CONTROL YOUR SMARTPHONE FROM PC
-
-sudo pacman -S scrcpy
-# Plug the device through USB
-# Search the IP on the phone configurations
-adb tcpip 5555
-adb connect 192.168.15.52 # Use your IP here
-# Unplug the device to run via Wi-fi
-# To run with less latency:
-scrcpy -m800 -b2M
-
-'⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! TIMESHIFT DON'T MAKE AUTOMATIC SNAPSHOTS
 # https://github.com/teejee2008/timeshift/issues/396
 
@@ -952,7 +935,7 @@ systemctl start cronie.service
 #! DOWNLOAD VIDEOS FROM NND
 
 yay -S nndownload
-nndownload.py -u user@mail.com -p password --add-metadata -o '/home/teruyo/Music/NND/{title}.{ext}' https://www.nicovideo.jp/watch/sm30171731
+nndownload.py -u user@mail.com -p password --add-metadata -o '~/Music/NND/{title}.{ext}' https://www.nicovideo.jp/watch/sm30171731
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! VIRT-MANAGER
@@ -1016,14 +999,14 @@ mkdir share
 chmod 777 share/
 
 # Go to 'Hardware details of the VM > Add Hardware > Filesystem'
-# Just modify the source path (/home/teruyo/share) and target Path (/sharepoint)
+# Just modify the source path (/home/yori/share) and target Path (/sharepoint)
 # Open the VM and type on it's terminal:
 mkdir share
 sudo mount -t 9p -o trans=virtio /sharepoint share
 # To interact with the files made/altered by the guest on host, you may need sudo or chmod
 sudo vim /etc/fstab
 # Add the following, with the huge spaces being a tab key press
-/sharepoint    /home/teruyo/share 9p    trans=virtio,version=9p2000.L,rw    0    0
+/sharepoint    /home/yori/share 9p    trans=virtio,version=9p2000.L,rw    0    0
 
 # Make a shared folder for Windows guest (incomplete)
 qemu-system-x86_64    -net user,smb=/absolute/path/to/folder    -net nic,model=virtio   ...
@@ -1037,7 +1020,7 @@ qemu-system-x86_64    -net user,smb=/absolute/path/to/folder    -net nic,model=v
 # 'Post Command: /path/to/command - opt1 arg %h %u %t -opt2 %U %p %g'
 
 # 'Server: 192.168.122.xxx'
-# 'User name: teruyo'
+# 'User name: yori'
 # 'User password: *********'
 # 'Domain: #ITS INDEED BLANK'
 # 'Resolution: Use client resolution'
