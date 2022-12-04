@@ -16,3 +16,4 @@ cp ~/.zshrc ~/.config/bakap/zshrc/zshrc-$day
 cp ~/Documents/fedora.sh ~/.config/bakap/fedora/fedora.sh-$day
 #cp ~/.config/compton.conf ~/.config/bakap/compton-$day
 echo "Bakad up dot flies"
+

@@ -97,14 +97,15 @@ sudo dnf install git bspwm rofi nitrogen sxhkd polybar dunst libnotify lightdm l
 sudo systemctl enable lightdm
 # Remeber to disable any other Display Manager if applicable, such as
 # sudo systemctl disable sddm
-#sudo git clone https://github.com/KenichiNishiya/Fedora.git
+cd /opt
+sudo git clone https://github.com/KenichiNishiya/Fedora.git
 
 mkdir ~/.config/bspwm
-cp ~/re/git/Fedora/.config/bspwm/bspwmrc ~/.config/bspwm/
-sudo chmod +x ~/.config/bspwm/bspwmrc
+cp /opt/Fedora/.config/bspwm/bspwmrc /home/yori/.config/bspwm/
+sudo chmod +x /home/yori/.config/bspwm/bspwmrc
 
 mkdir ~/.config/rofi
-cp ~/re/git/Fedora/.config/rofi/config.rasi ~/.config/rofi/
+cp /opt/Fedora/.config/rofi/config.rasi /home/yori/.config/rofi/
 
 mkdir ~/.config/rofi/shared
 vim ~/.config/rofi/shared/colors.rasi
@@ -121,26 +122,25 @@ urgent:         #FF5555FF;
 # https://github.com/adi1090x/rofi/tree/master/files/colors
 
 mkdir ~/.config/sxhkd
-cp ~/re/git/Fedora/.config/sxhkd/sxhkdrc ~/.config/sxhkd/
+cp /opt/Fedora/.config/sxhkd/sxhkdrc /home/yori/.config/sxhkd/
 
 mkdir ~/.config/polybar
-cp ~/re/git/Fedora/.config/polybar/* ~/.config/polybar/
-sudo chmod +x ~/.config/polybar/launch.sh
+cp /opt/Fedora/.config/polybar/* /home/yori/.config/polybar/
+sudo chmod +x /home/yori/.config/polybar/launch.sh
 
 mkdir ~/.config/nvim
-cp -r ~/re/git/Fedora/.config/nvim/* ~/.config/nvim/
+cp -r /opt/Fedora/.config/nvim/* /home/yori/.config/nvim/
 
-cp ~/re/git/Fedora/.config/mpd ~/.config/
+cp /opt/Fedora/.config/mpd /home/yori/.config/
 
-cp ~/re/git/Fedora/.config/ncmpcpp ~/.config/
+cp /opt/Fedora/.config/ncmpcpp /home/yori/.config/
 
 mkdir ~/.config/picom
-cp ~/re/git/Fedora/.config/picom/picom.conf ~/.config/picom/
+cp /opt/Fedora/.config/picom/picom.conf /home/yori/.config/picom/
 
 mkdir ~/.config/dunst
-cp ~/re/git/Fedora/.config/dunst/dunstrc ~/.config/dunst/
-
-# Start dusnst and test if you want
+cp /opt/Fedora/.config/dunst/dunstrc ~/.config/dunst/
+# Start it and test if you want
 notify-send Title Message
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
@@ -220,7 +220,7 @@ sudo vim /usr/share/gtk-2.0/gtkrc
 # Now for the qt stuff
 kvantummanager
 sudo kvantummanger
-# Install/Update Theme > Select a Kvantum theme folder > ~/.themes/dracula/kde/kvantum/Dracula-purple-solid > Choose > Install this theme
+# Install/Update Theme > Select a Kvantum theme folder > /home/yori/.themes/dracula/kde/kvantum/Dracula-purple-solid > Choose > Install this theme
 # Change/Delete Theme > Select a theme: > Dracula-purple-solid > Use this theme
 qt5ct
 sudo qt5ct # Altough this won't work unless you set the env var on /etc/profile
@@ -447,19 +447,19 @@ yt-dlp -o '~/Music/%(playlist_title)s/%(title)s.%(ext)s' -ciw -f 'bestvideo[ext=
 yt-dlp -f bestaudio -ciw --newline -o '~/Music/%(playlist_title)s/%(title)s.%(ext)s' -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata -ciw --download-archive '~/Documents/ytdl/yt-dl_ongaku.txt' --cookies '~/Documents/ytdl/cookies-youtube-com.txt' 'https://www.youtube.com/playlist?list=PLBYlt8Uh0EcwSftTxeFaI3-6cqcQImKPZ'
 
 # Video with subtitles and description on a separate folder
-yt-dlp -o '/media/sf_Music/youtube-dl/%(playlist_title)s/%(title)s/%(title)s.%(ext)s' -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 --add-metadata --audio-quality 0 --embed-thumbnail -ciw --all-subs --write-description --download-archive '/media/sf_Music/youtube-dl/yt-dl.txt --cookies /home/yori/Desktop/cookies-youtube-com.txt' 'https://www.youtube.com/playlist?list=PLBYlt8Uh0EcwSftTxeFaI3-6cqcQImKPZ'
+yt-dlp -o '/media/sf_Music/youtube-dl/%(playlist_title)s/%(title)s/%(title)s.%(ext)s' -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 --add-metadata --audio-quality 0 --embed-thumbnail -ciw --all-subs --write-description --download-archive '/media/sf_Music/youtube-dl/yt-dl.txt --cookies /home/teruyoh/Desktop/cookies-youtube-com.txt' 'https://www.youtube.com/playlist?list=PLBYlt8Uh0EcwSftTxeFaI3-6cqcQImKPZ'
 
 # Generic video
-yy-dlp -o '/media/sf_Music/youtube-dl/%(playlist_title)s/%(title)s.%(ext)s' -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 --add-metadata --cookies '/home/yori/Desktop/cookies-youtube-com.txt' --download-archive yt-dl_video.txt ''
+yy-dlp -o '/media/sf_Music/youtube-dl/%(playlist_title)s/%(title)s.%(ext)s' -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 --add-metadata --cookies '/home/teruyoh/Desktop/cookies-youtube-com.txt' --download-archive yt-dl_video.txt ''
 
 # Generic audio only
-yt-dlp -f bestaudio -o '/media/sf_Music/youtube-dl/%(playlist_title)s/%(title)s.%(ext)s' -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata -ciw --download-archive yt-dl_audio.txt --cookies '/home/yori/Desktop/cookies-youtube-com.txt' 'https://www.youtube.com/playlist?list=PLBYlt8Uh0EcwSftTxeFaI3-6cqcQImKPZ'
+yt-dlp -f bestaudio -o '/media/sf_Music/youtube-dl/%(playlist_title)s/%(title)s.%(ext)s' -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata -ciw --download-archive yt-dl_audio.txt --cookies '/home/teruyoh/Desktop/cookies-youtube-com.txt' 'https://www.youtube.com/playlist?list=PLBYlt8Uh0EcwSftTxeFaI3-6cqcQImKPZ'
 
 # until ;do sleep 5; done //set a 5 sec delay between donwloads
 
 #'%(autonumber)s - %(title)s.%(ext)s'
 
-#/home/yori/youtube-dl/%(title)s.%(ext)s #directory to where it'll download, if don't exists it creates it, but need to use sudo and it'll be locked
+#/home/teruyoh/youtube-dl/%(title)s.%(ext)s #directory to where it'll download, if don't exists it creates it, but need to use sudo and it'll be locked
 #sudo chown -R $USER: $HOME
 #to unlock
 
@@ -812,7 +812,7 @@ sudo vim /etc/sudoers.d/filename
 # It's recommended to put your username as the filename in order to better manage sudoers
 
 # Paste the following, changing to your username and program binary location
-yori ALL=(ALL) NOPASSWD:/usr/bin/umount,/bin/umount
+teruyo ALL=(ALL) NOPASSWD:/usr/bin/umount,/bin/umount
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! EMOJIS
@@ -935,7 +935,7 @@ systemctl start cronie.service
 #! DOWNLOAD VIDEOS FROM NND
 
 yay -S nndownload
-nndownload.py -u user@mail.com -p password --add-metadata -o '~/Music/NND/{title}.{ext}' https://www.nicovideo.jp/watch/sm30171731
+nndownload.py -u user@mail.com -p password --add-metadata -o '/home/teruyo/Music/NND/{title}.{ext}' https://www.nicovideo.jp/watch/sm30171731
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! VIRT-MANAGER
@@ -999,14 +999,14 @@ mkdir share
 chmod 777 share/
 
 # Go to 'Hardware details of the VM > Add Hardware > Filesystem'
-# Just modify the source path (/home/yori/share) and target Path (/sharepoint)
+# Just modify the source path (/home/teruyo/share) and target Path (/sharepoint)
 # Open the VM and type on it's terminal:
 mkdir share
 sudo mount -t 9p -o trans=virtio /sharepoint share
 # To interact with the files made/altered by the guest on host, you may need sudo or chmod
 sudo vim /etc/fstab
 # Add the following, with the huge spaces being a tab key press
-/sharepoint    /home/yori/share 9p    trans=virtio,version=9p2000.L,rw    0    0
+/sharepoint    /home/teruyo/share 9p    trans=virtio,version=9p2000.L,rw    0    0
 
 # Make a shared folder for Windows guest (incomplete)
 qemu-system-x86_64    -net user,smb=/absolute/path/to/folder    -net nic,model=virtio   ...
@@ -1020,7 +1020,7 @@ qemu-system-x86_64    -net user,smb=/absolute/path/to/folder    -net nic,model=v
 # 'Post Command: /path/to/command - opt1 arg %h %u %t -opt2 %U %p %g'
 
 # 'Server: 192.168.122.xxx'
-# 'User name: yori'
+# 'User name: teruyo'
 # 'User password: *********'
 # 'Domain: #ITS INDEED BLANK'
 # 'Resolution: Use client resolution'
