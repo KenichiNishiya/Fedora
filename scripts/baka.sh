@@ -5,7 +5,7 @@ day=$(date +"%Y-%m-%dT%H%M%S")
 cp ~/.config/alacritty/alacritty.yml ~/.config/bakap/alacritty/alacritty.yml-$day
 cp ~/.config/bspwm/bspwmrc ~/.config/bakap/bspwm/bspwmrc-$day
 cp ~/.config/dunst/dunstrc ~/.config/bakap/dunst/dunstrc-$day
-cp ~/.config/polybar/config ~/.config/bakap/polybar/config-$day
+cp ~/.config/polybar/config.ini ~/.config/bakap/polybar/config.ini-$day
 cp ~/.config/polybar/launch.sh ~/.config/bakap/polybar/launch.sh-$day
 cp ~/.config/rofi/config.rasi ~/.config/bakap/rofi/config.rasi-$day
 cp ~/.config/sxhkd/sxhkdrc ~/.config/bakap/sxhkd/sxhkdrc-$day
