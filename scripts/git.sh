@@ -24,7 +24,7 @@ cp -r $HOME'.config/bakap/' $REPO
 cp -r /home/yori/Documents/scripts/* $REPO'scripts/'
 cp $IN'nvim/init.vim' $OUT'nvim/init.vim'
 sudo cp /etc/sddm.conf.d/sddm.conf $OUT'sddm/sddm.conf' 
-sudo cp -r /usr/share/sddm/themes/sddm-sugar-candy $OUT'sddm/'
+cp -r /usr/share/sddm/themes/sddm-sugar-candy $OUT'sddm/'
 
 cd $REPO
 echo "Changed directory to $(pwd)"
