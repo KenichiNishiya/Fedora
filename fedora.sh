@@ -99,12 +99,12 @@ fc-match FontName
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! INSTALLING BSPWM AND OTHER THINGS
-sudo dnf install git bspwm rofi nitrogen sxhkd polybar dunst libnotify lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+sudo dnf install git bspwm rofi nitrogen sxhkd polybar dunst libnotify lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings sddm
+# I'll be using sddm, but having lightdm as a fallback is nice
 
-sudo systemctl enable lightdm
+sudo systemctl enable sddm
 # Remeber to disable any other Display Manager if applicable, such as
-# sudo systemctl disable sddm
-#sudo git clone https://github.com/KenichiNishiya/Fedora.git
+# sudo systemctl disable lightdm
 
 mkdir ~/.config/bspwm
 cp ~/re/git/Fedora/config/bspwm/bspwmrc ~/.config/bspwm/
@@ -149,6 +149,10 @@ cp ~/re/git/Fedora/config/dunst/dunstrc ~/.config/dunst/
 
 # Start dusnst and test if you want
 notify-send Title Message
+
+# SDDM config files need sudo 
+sudo cp ~/re/git/Fedora/config/sddm/sddm.conf /etc/sddm.conf.d/
+sudo cp -r ~/re/git/Fedora/config/sddm/sddm-sugar-candy /usr/share/sddm/themes/
 
 '⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩⛩'
 #! ALACRITTY TERMINAL
