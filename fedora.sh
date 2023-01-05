@@ -110,20 +110,9 @@ mkdir ~/.config/bspwm
 cp ~/re/git/Fedora/config/bspwm/bspwmrc ~/.config/bspwm/
 sudo chmod +x ~/.config/bspwm/bspwmrc
 
-mkdir ~/.config/rofi
-cp ~/re/git/Fedora/config/rofi/config.rasi ~/.config/rofi/
-
-mkdir ~/.config/rofi/shared
-vim ~/.config/rofi/shared/colors.rasi
-# Paste the following for the Dracula theme:
-* {
-background:     #1E1F29FF;
-background-alt: #282A36FF;
-foreground:     #FFFFFFFF;
-selected:       #BD93F9FF;
-active:         #50FA7BFF;
-urgent:         #FF5555FF;
-}
+mkdir -p ~/.config/rofi
+cp -r ~/re/git/Fedora/config/rofi/* ~/.config/rofi/
+# The default color scheme here is Dracula
 # Other color schemes you can find here:
 # https://github.com/adi1090x/rofi/tree/master/files/colors
 
