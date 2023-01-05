@@ -14,6 +14,8 @@ cp ~/.zsh_aliases ~/.config/bakap/zsh_aliases/zsh_aliases-$day
 cp ~/.profile ~/.config/bakap/profile/profile-$day
 cp ~/.zshrc ~/.config/bakap/zshrc/zshrc-$day
 cp ~/Documents/fedora.sh ~/.config/bakap/fedora/fedora.sh-$day
+sudo cp /etc/sddm.conf.d/sddm.conf ~/.config/bakap/sddm/sddm.conf-$day
+sudo cp -r /usr/share/sddm/themes/sddm-sugar-candy ~/.config/bakap/sddm/
 #cp ~/.config/compton.conf ~/.config/bakap/compton-$day
 echo "Bakad up dot flies"
 
